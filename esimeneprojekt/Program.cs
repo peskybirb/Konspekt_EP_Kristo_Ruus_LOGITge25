@@ -49,7 +49,7 @@
             
              * programm küsib kas ta on 18 "alaealise sisse ei lasta"
              * kui ta on vanem kui 18 , pakutakse mojitot
-             */
+             
 
             int kasutajavanus = 0;
             Console.WriteLine("kui vana sa oled?");
@@ -62,6 +62,15 @@
             {
                 Console.WriteLine("Alaealisi sisse ei lubata , mine vembutembumaale");
             }
+            */
+
+            /*
+             Näite programme 3 
+            küsib  kasutajalt tema kasutaja nime. 
+            küsib kasutajalt tema parooli.
+            logib kasutaja sisse kui mõlemad on õiged.
+            //hint: &&
+             */
             
         }
     }
