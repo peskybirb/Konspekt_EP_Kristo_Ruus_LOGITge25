@@ -1,0 +1,2 @@
+# Konspekt_EP_Kristo_Ruus_LOGITge25
+programeerimise alused konspekt
