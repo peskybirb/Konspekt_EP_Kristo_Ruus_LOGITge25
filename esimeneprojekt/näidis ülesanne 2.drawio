@@ -1,0 +1,72 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Leht-1" id="MRceZrcJAgBAZj0JiznF">
+    <mxGraphModel dx="752" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-1" target="EE34L0uZgbfSc3r8ZWo1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-1" value="programmi algus" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="80" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-3" target="EE34L0uZgbfSc3r8ZWo1-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-3" value="tekita muutuja &quot;kasutajavanus&quot; millele omistame algväärtuseks täisarvu 0" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="302.5" y="150" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-5" target="EE34L0uZgbfSc3r8ZWo1-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-5" value="kuva kasutajale tekst &quot;Kui vana sa oled ?&quot;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="302.5" y="230" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-7" target="EE34L0uZgbfSc3r8ZWo1-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-7" value="Ootame kuni kasutaja sisestab oma vanuse mille omistame muutuja &quot;kasutajavanus&quot; väärtuseks" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="306.5" y="310" width="157" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.492;entryY=-0.044;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-9" target="EE34L0uZgbfSc3r8ZWo1-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-13" value="JAH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EE34L0uZgbfSc3r8ZWo1-11">
+          <mxGeometry x="-0.3329" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-9" target="EE34L0uZgbfSc3r8ZWo1-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-19" value="EI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EE34L0uZgbfSc3r8ZWo1-14">
+          <mxGeometry x="-0.5568" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-9" value="kas kasutaj asisestatud vanus on suurem kui 18" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="303.75" y="390" width="162.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-12" target="EE34L0uZgbfSc3r8ZWo1-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-12" value="Kuvame kasutajale teksti &quot;Tere siin on sinu Mojito🍸&quot;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="480" width="183.66" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="EE34L0uZgbfSc3r8ZWo1-15" target="EE34L0uZgbfSc3r8ZWo1-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-15" value="kuvame kasutajale teksti &quot;alaealisi sisse ei lasta, mine vembutembumaale&quot;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="480" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EE34L0uZgbfSc3r8ZWo1-16" value="Programmi lõpp" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="304" y="680" width="186" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
