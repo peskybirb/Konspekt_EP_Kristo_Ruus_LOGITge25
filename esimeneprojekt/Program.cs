@@ -183,9 +183,39 @@ namespace esimeneprojekt
 
             /*----------------- Näite Programm 6 -----------------------*/
 
+            Console.WriteLine("Palun sisesta oma vanus.NB! kirjuta täis arvuna!");
+            int isikuvanus = 0;
+            isikuvanus = int.Parse(Console.ReadLine());
+            if (isikuvanus <= 0) 
+            {
+                Console.WriteLine("ajarändureid me ei teeninda!!!");
+            }
+            else if (isikuvanus > 0 && isikuvanus < 18)
+            {
+                Console.WriteLine("Palun sisesta oma nimi");
+                string kasutajanimi = "";
+                kasutajanimi = Console.ReadLine();
+                Console.WriteLine($"Kallis {kasutajanimi} palun kutsu siia oma lapsevanem ");
+            }
+            else
+            {
+                Console.WriteLine("Palun kirjuta siia oma eesnimi");
+                string eesnimi = "";
+                eesnimi = Console.ReadLine();
 
+                Console.WriteLine("Palun kirjuta siia ka oma perekonnanimi");
+                string perekonnanimi = "";
+                perekonnanimi = Console.ReadLine();
+                if (eesnimi == "" || perekonnanimi == "")
+                {
+                    Console.WriteLine("sisestama pidi mõlemad nimed :<");
+                }
+                else
+                {
+                    Console.WriteLine($"Teretulemast {eesnimi} {perekonnanimi}");
+                }
 
-
+            }
 
 
 
