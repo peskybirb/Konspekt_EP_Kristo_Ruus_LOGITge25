@@ -1,4 +1,6 @@
-﻿namespace esimeneprojekt
+﻿using System.ComponentModel.Design;
+
+namespace esimeneprojekt
 {
     internal class Program
     {
@@ -45,7 +47,7 @@
             //string string = "abc"; //very bad 
             string sõne = "abc"; //good
             
-            */
+            
             int mingiarv = 4;
 
             mingiarv = mingiarv + 15;   //
@@ -65,7 +67,7 @@
 
             mingiarv /= 15;   //
 
-            /*  O M I S T U S    O P E R A A T O R I D */
+              O M I S T U S    O P E R A A T O R I D 
 
 
             // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
@@ -85,8 +87,36 @@
             // -- e kiirtehe mis lahutab ainult 1 maha
             muutuuja--;
 
-            /* --------------------------------------------------------------------------*/
-            /* näiteülesanne 4 */
+
+             V Õ R D L U S    O P E R A A T O R I D 
+            
+            // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
+
+            // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
+
+            // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
+
+            // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
+
+            // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
+
+            // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
+
+
+            L O O G I L I S E D      O P E R A A T O R I D
+
+            // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
+            (true + true = true)
+            // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
+
+            // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
+
+             --------------------------------------------------------------*/
+
+
+            /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
+
+            /*
             // int muutuja = 0;
 
             Console.WriteLine("Palun sisesta oma vanus");
@@ -99,13 +129,13 @@
 
             Console.WriteLine("Vannuste vahe hetkel on "+(kasutajavanavanaemavanus - kasutajavanus));
             Console.WriteLine("kui palju sa vanem oled ?");
-           /*muutuja*/ kasutajavanus += int.Parse(Console.ReadLine());
+            kasutajavanus += int.Parse(Console.ReadLine());
             Console.WriteLine("Vanuste vahe nüüd on "+(kasutajavanavanaemavanus - kasutajavanus));
           
             // Console.WriteLine("vanuste vahe ei muutu :3 silly "+((kasutajavanavanaemavanus + muutuja)-(kasutajavanus + muutuja)));
             
             
-            
+            */
             /*
 
          * programm küsib kas ta on 18 "alaealise sisse ei lasta"
@@ -124,6 +154,42 @@
             Console.WriteLine("Alaealisi sisse ei lubata , mine vembutembumaale");
         }
         */
+            /*------------------ näite programm 5 -------------------*/
+            /*
+            Console.WriteLine("Kui kaugele oli su viimane kuulitõuge? (m)");
+            float kaugus = float.Parse(Console.ReadLine());
+            if (kaugus <= 1.00 && kaugus >= 0.00)
+            {
+
+                Console.WriteLine("when you try your best but you don't succeed");
+            }
+            else if (kaugus <= 2.00 && <= 1.01)
+            {
+                Console.WriteLine("natukene veel võibolla");
+            }
+            else if (kaugus <= 3.00 && kaugus >= 2.01)
+            {
+                Console.WriteLine("hell yeah broth tegid ära");
+            }
+            else if (kaugus < 0)
+            {
+                Console.WriteLine("Vale pool silly billy");
+            }
+            else 
+            {
+                Console.WriteLine("NAH sa defo oled cheatinud");
+            }
+             */
+
+            /*----------------- Näite Programm 6 -----------------------*/
+
+
+
+
+
+
+
+
 
             /*
              Näite programme 3 
