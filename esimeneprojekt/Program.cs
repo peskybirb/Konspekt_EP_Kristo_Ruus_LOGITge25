@@ -111,7 +111,22 @@ namespace esimeneprojekt
 
             // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
 
-             --------------------------------------------------------------*/
+                             --      T I N G I M U S L A U S E      --
+            
+            if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
+
+            else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
+
+            else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
+            
+            
+            
+            
+            
+            
+            
+            
+            --------------------------------------------------------------*/
 
 
             /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
@@ -182,7 +197,7 @@ namespace esimeneprojekt
              */
 
             /*----------------- Näite Programm 6 -----------------------*/
-
+            /*
             Console.WriteLine("Palun sisesta oma vanus.NB! kirjuta täis arvuna!");
             int isikuvanus = 0;
             isikuvanus = int.Parse(Console.ReadLine());
@@ -216,7 +231,7 @@ namespace esimeneprojekt
                 }
 
             }
-
+            */
 
 
 
