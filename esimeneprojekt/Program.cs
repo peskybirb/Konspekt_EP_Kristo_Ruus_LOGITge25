@@ -141,7 +141,9 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         // string      - andmetüüp mis kirjutatakse alati muutuja ette , andmetüüübis endas asuvad ka andmetüübile vajalikud funktsioonid.
         // "vastus"    - muutuja mille nimi on vastus mis omab string tüüpi andmeid.mis omistatakse sinna sisse omistusoperaatoriga.
         // ReadLine(); - ReadLine on funktsiooon mida parasjagu kasutatakse . ReadLine loeb käsurealt vaike tüüpi sõne väärtuseid.
-
+        // //          - tähistab ühearealist kommentaari
+        // /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
+        // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
 
 
 
