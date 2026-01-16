@@ -154,9 +154,33 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
         //             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
 
+        /* andmetüübi castimine e. teisendamine.
+          
+         
+         //Castimine, on arvu teisendamine ühest andmetüübist teise. Castimist on kahte eri liiki , automaatne (implicit) ja automaatne (explicit) , 
+        automaatne castimine toimub siis 
+         // kui teisendatakse väiksemast andmetüübist suuremasse selliselt juhtul programmeerija spetsiifiliselt castima ei pea
+         // manuaalne castimine toimub siis kui toimub castimine väiksemast andmetüüübist suuremasse , sellel juhtul on vaja panna muutuja ette sulupaar kui on soovitav andmetüüp sees.
+         
+        //manuaalne castimine
+
+          double minuData1 = 1.23d;            // tekitatakse või onolemas double tüüpi andmed muutujas minuData1 
+         float minuFloat1 = (float)minuData1; // toimub teisendaminne väiksemasse Float andmetüüpi suuremast double andmetüübist
+         long minuLong1 = (long)minuData1;   // toimub teisendaminne väiksemasse long andmetüüpi suuremast float andmetüübist
+         int minuInt1 = (int)minuLong1;     // toimub teisendaminne väiksemasse int andmetüüpi suuremast long andmetüübist
+         char newChar1 = (char)minuInt1;   // toimub teisendaminne väiksemasse char andmetüüpi suuremast int andmetüübist
+
+        //automaatne castimine
+
+         int backtoint = newChar1;           //toimub automaat teisendus väiksemast char andmetüübist suuremasse int andmetüüpi
+         long backtolong = backtoint;        //toimub automaat teisendus väiksemast int andmetüübist suuremasse long andmetüüpi
+         float backtofloat = backtolong;     //toimub automaat teisendus väiksemast long andmetüübist suuremasse float andmetüüpi
+         double backtodouble = backtofloat;  //toimub automaat teisendus väiksemast float andmetüübist suuremasse double andmetüüpi
+
+        // suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
 
 
-        /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
+         /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
 
         /*
         // int muutuja = 0;
@@ -273,7 +297,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
          */
 
         // --------------- näiteülesanne 7 ---------------
-
+        /*
         int minuArv = 9001;
         Console.WriteLine(minuArv);
         double minuDOuble = minuArv;
@@ -284,6 +308,160 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
             Console.WriteLine(minuUuusDouble);
         int minuUusArv = (int)minuUuusDouble;
         Console.WriteLine(minuUusArv);
+        
+        Console.Clear();
+        // castimise näide
+        double minuData1 = 1.23d;
+        float minuFloat1 = (float)minuData1;
+        long minuLong1 = (long)minuData1;
+        int minuInt1 = (int)minuLong1;
+        char newChar1 = (char)minuInt1;
+
+        int backtoint = newChar1;
+        long backtolong = backtoint;
+        float backtofloat = backtolong;
+        double backtodouble = backtofloat;
+        */
+
+
+        /*
+        Console.WriteLine("Palun sisestage esimene arv");
+        float Arv1 = 0;
+        Arv1 = float.Parse(Console.ReadLine());
+        
+        Console.WriteLine("Palun sisestage teine arv");
+        float Arv2 = 0;
+        Arv2 = float.Parse(Console.ReadLine());
+
+
+        Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
+        string TehteTüüp = "";
+        TehteTüüp = Console.ReadLine();
+        double TehteTulemus = 0;
+
+        if (TehteTüüp != "")
+        {
+
+
+            switch (TehteTüüp)
+            {
+
+                case ("+"):
+
+                    TehteTulemus = Arv1 + Arv2;
+
+                    break;
+
+
+                case ("-"):
+
+                    TehteTulemus = Arv1 - Arv2;
+
+                    break;
+
+                case ("*"):
+
+                    TehteTulemus = Arv1 * Arv2;
+
+                    break;
+
+                case ("/"):
+
+                    TehteTulemus = Arv1 / Arv2;
+
+                    break;
+
+                case ("^"):
+
+                    TehteTulemus = Math.Pow(Arv1, Arv2);
+
+                    break;
+
+                case ("V"):
+
+                    TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
+
+                    break;
+
+                default:
+
+                    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+
+                    return;
+            }
+            Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+        }
+        else 
+        {
+            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+        }
+        */
+
+
+        // the hell version.
+
+        Console.WriteLine("Palun sisestage esimene arv");
+        float Arv1 = 0;
+        Arv1 = float.Parse(Console.ReadLine());
+
+        Console.WriteLine("Palun sisestage teine arv");
+        float Arv2 = 0;
+        Arv2 = float.Parse(Console.ReadLine());
+
+
+        Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
+        string TehteTüüp = "";
+        TehteTüüp = Console.ReadLine();
+        double TehteTulemus = 0;
+
+        if (TehteTüüp != "")
+        {
+
+
+            if (TehteTüüp == "+")
+            {
+                TehteTulemus = Arv1 + Arv2;
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "-")
+            {
+                TehteTulemus = Arv1 - Arv2;
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "*")
+            {
+                TehteTulemus = Arv1 * Arv2;
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "*")
+            {
+                TehteTulemus = Arv1 * Arv2;
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "/")
+            {
+                TehteTulemus = Arv1 / Arv2;
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "^")
+            {
+                TehteTulemus = Math.Pow(Arv1, Arv2);
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else if (TehteTüüp == "V")
+            {
+                TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
+                Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+            }
+            else
+            {
+                Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+            }
+        }
+         
+
+
+        
 
     }
 }
