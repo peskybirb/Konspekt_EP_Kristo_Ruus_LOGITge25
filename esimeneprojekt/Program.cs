@@ -123,11 +123,19 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         
         //   - S Ü N T A K S -- */
 
-        /*
-        Console.WriteLine("Ommik");
-        string vastus = Console.ReadLine();
-        Console.WriteLine(":3");
-        */
+
+        /*  Console.WriteLine("Ommik");
+          string vastus = Console.ReadLine();
+          Console.WriteLine(":3");
+
+
+          // 1      2   3   4  5
+          string näidis = "def";*/ //1 muutuja kirjutatakse alustades andmetüübist , ilma andmetüübita ei saa muutujat deklareerida. 
+                                   //2 seejärele kirjutatkse muutuja nimi mis kirjeldab andmeid ja nende nende andme eesmärki
+                                   //  soovitatakse kasutada muutujate nimetamisele cameCase stiili. esimene sõna on väikse tähega ja ülejäänud on suuretähega algavad.
+                                   //3 omistusoperaator mis annab andmed sisse.
+                                   //4 andmed mida omistatakse.
+                                   //5 lauselõpumärk.
 
         // ;           - iga koodi lause koodiploki sees lõppeb lauselõpu märgiga.
         // Console     - Console on C# käsurea addreseerimise pakett millega saab erinevaid operatsioone teha.
@@ -144,8 +152,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         // //          - tähistab ühearealist kommentaari
         // /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
         // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
-
-
+        //             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
 
 
 
@@ -265,6 +272,18 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         //hint: &&
          */
 
+        // --------------- näiteülesanne 7 ---------------
+
+        int minuArv = 9001;
+        Console.WriteLine(minuArv);
+        double minuDOuble = minuArv;
+        Console.WriteLine(minuDOuble);
+
+
+        double minuUuusDouble = 6.7;
+            Console.WriteLine(minuUuusDouble);
+        int minuUusArv = (int)minuUuusDouble;
+        Console.WriteLine(minuUusArv);
 
     }
 }
