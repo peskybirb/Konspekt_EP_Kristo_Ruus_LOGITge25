@@ -115,12 +115,49 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
                          --      T I N G I M U S L A U S E      --
         
+         //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
+
         if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
 
         else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
 
         else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
         
+        //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
+        */
+
+        /*
+        int option = 3;
+
+        switch(option) {  //Switch n kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
+                          //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
+                          //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
+
+            case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
+                          //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
+                          //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
+                Console.WriteLine("nope");
+                break;
+                case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
+
+                break;
+
+                case 3:
+                Console.WriteLine(option);  // antud juhtul kuvatakse muutujas option asuv väärtus välja 
+                break;
+
+            default:  //default juhtum täitub siis kui ülejäänud juhtumid ei kata switchi lülitusvalikus olevas muutujas asuvat väärtust
+                      // toimib nag else , kuid erinevalt if elsei else struktuuist , võib default olla ka alguses.
+                Console.WriteLine("best wishes stranger");
+                break;    // Kui antud juhtumi tegevus on tehtud väljutakse mitte ainult juhtumist vaid ka kogu käesolevast switchcase tingimustikust
+                          // peale breaki on lauselõpu märk.
+        }
+        */
+       
+       /*
+
+        
+
         //   - S Ü N T A K S -- */
 
 
@@ -400,6 +437,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
         // the hell version.
 
+        /*
         Console.WriteLine("Palun sisestage esimene arv");
         float Arv1 = 0;
         Arv1 = float.Parse(Console.ReadLine());
@@ -459,9 +497,14 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
             }
         }
          
+        */
+
+        Console.WriteLine("puudumine maha tunni lõpus");
 
 
-        
+
+
+
 
     }
 }
