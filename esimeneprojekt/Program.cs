@@ -45,6 +45,24 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         var Y = "ABC";
         bool jahvõiei = false; //kas true või false.
 
+        //                 ------ K A I T S T U D  S Õ N A D -----
+
+        //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
+        //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
+
+        //    abstract    as           base       bool       break       byte        case
+        //    catch       char         checked    class      count       continue    decimal
+        //    default     delegate     do         double     else        enum        event
+        //    explicit    extern       false      finally    fixed       float       for
+        //    foreach     goto         if         implicit   in          int         interface
+        //    internal    is           lock       long       namespace   new         null
+        //    object      operator     out        override   params      private     protected
+        //    public      readonly     ref        return     sbyte       sealed      short 
+        //    sizeof      stackalloc   static     string     struck      switch      this
+        //    throw       true         try        typeof     uint        ulong       unchecked 
+        //    unsafe      ushort       using      virtual    void        volatile    while
+         
+        // ----------------------------------------------------------------------------------------------------
         
         //string string = "abc"; //very bad 
         string sõne = "abc"; //good
@@ -498,8 +516,6 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         }
          
         */
-
-        Console.WriteLine("puudumine maha tunni lõpus");
 
 
 
