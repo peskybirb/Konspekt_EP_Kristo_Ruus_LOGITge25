@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Design;
-using System; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
-             //teised projektid viidatakse tavaliselt solution failist
+using System;
+using System.Net.Http.Headers; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
+                               //teised projektid viidatakse tavaliselt solution failist
 
 namespace esimeneprojekt;  // nimeruum, sissaldab loogeliste sulgude vahel konteinerit kus asub kogu programmi kood nimw all "esimeneprojekst".
 
@@ -544,9 +545,44 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
          
         */
 
+        // -------------- näiteülesanne 8 ------------
 
+        // Kirjuta programmis mis 
+        // küsib kasutajatelt pikkust  sentimeetritest
+        // küsib teiste pereliikmete pikkust 
+        // programm arvutab välja perekonna keskmise pikkuse
+        // vanemate keskmise pikkuse , laste pikkuse , ja mõlema vahe
+        // kõik arvud programmis peab esitama komakohtadega arvudega
+        /*
+        int kasutajapikkus = 0;
+        int isapikkus = 0;
+        int emajapikkus = 0;
+        int vennaapikkus = 0;
 
+        Console.WriteLine("Mis on sinu pikkus");
+        kasutajapikkus = int.Parse(Console.ReadLine());
+        Console.WriteLine("Mis on sinu venna pikkus");
+        vennaapikkus = int.Parse(Console.ReadLine());
+        Console.WriteLine("Mis on sinu ema pikkus");
+        emajapikkus = int.Parse(Console.ReadLine());
+        Console.WriteLine("Mis on sinu isa pikkus");
+        isapikkus = int.Parse(Console.ReadLine());
 
+        float perekonnakeskmine = ((float)(kasutajapikkus+emajapikkus+vennaapikkus+isapikkus)/4)/100;
+        float Vanematekeskmine = ((float)(emajapikkus+vennaapikkus)/2)/100;
+        float lastekeskmine = ((float)(kasutajapikkus+vennaapikkus)/2)/100;
+        float Vahe = 0;
+        if (Vanematekeskmine > lastekeskmine)
+        {
+            Vahe = Vanematekeskmine - lastekeskmine;
+        }
+        else
+        {
+            Vahe = lastekeskmine - Vanematekeskmine;
+        }
+        Console.WriteLine("perekonna keskmine on "+Math.Round(perekonnakeskmine,2)+" m. vanematekeskmine on "+Math.Round(Vanematekeskmine,2)+" m. Lastekeskmine on "+Math.Round(lastekeskmine, 2) +" m. kahekeskmine vahe on "+Math.Round(Vahe, 2) +" m. ");
+        */
+        
 
 
     }
