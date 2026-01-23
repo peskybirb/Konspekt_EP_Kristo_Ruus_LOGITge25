@@ -171,12 +171,12 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                           // peale breaki on lauselõpu märk.
         }
         */
-       
-       /*
 
-        
+        /*
 
-        //   - S Ü N T A K S -- */
+
+
+         //   - S Ü N T A K S -- */
 
 
         /*  Console.WriteLine("Ommik");
@@ -234,8 +234,35 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
         // suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
 
+        //       ------------  P A R S I M I N E  --------------
 
-         /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
+        // parsimine on tekstist katse teisendada mingit tüüpi arvandmeid . teisendus toimub küsides mingist andmetüübist  talle sisse ehitatud meetodi Parse() abil mingist sõnest arvandmeid
+        
+        string seenontekst = "1";                    // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust
+        int teisendatud = int.Parse(seenontekst);   // muutuja "teisendatud" kuhu omistatakse Parse() meeetodi abil sõnest arvväärtus 
+        Console.WriteLine(teisendatud);            // teisenduse väljakuvamine.
+
+
+        // Parsimisel on ka alternatiivne meetod "TryParse()" tryparse üritab teisendada ning kui teisendus kukub läbi, tagastatakse algne väärtus/false
+
+        string seenontekst2 = "2";                     // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust     
+        int teisendatud2 = int.Parse(seenontekst2);    // muutuja "teisendatud2" omab potensiaalset muutujat 
+        Console.WriteLine(teisendatud2);               // teisenduse väljakuvamine
+
+        //converteerimine on mingisuguse andme otsene teisendus ükskõik mis teise andmetüüpi. Selle jaoks on olemas moodul "Convert" 
+        //Convert moodulis on sarnaselt arvandmetüüpides olevale ToString() meetodile ka muude andmetüüpide vastavad konventermismeetodid.
+              
+        var mingiInfo = "6.7";                                    //teisendamist vaja info
+        string mingiInfoTekst Convert.ToString(mingiInfo);        // convert teisendab mingist tundmatust andmetüübist ifo strngiks /sõneks
+        char mingiInfoChar; Convert.ToChar(mingiInfo);            // teisendus täheks 
+        int mingiInfoInt; Convert.ToInt32(mingiInfo);             // teisendab int andmetüübiks
+        long mingiInfoLong; Convert.ToInt64(mingiInfo);           // teisendab Long andmetüübiks 
+        decimal mingiInfoDecimal; Convert.ToDecimal(mingiInfo);   // teisendab decimaliks
+        double mingiInfoDouble; Convert.ToDouble(mingiInfo);      // teisendab double andmetüübiks
+        byte mingiInfoByte; Convert.ToByte(mingiInfo);            // teisendab baidiks
+        bool mingiInfoBool; Convert.ToBoolean(mingiInfo);         // teisendab Boolean andmetüübiks
+
+        /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
 
         /*
         // int muutuja = 0;
