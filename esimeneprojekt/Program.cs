@@ -8,694 +8,750 @@ namespace esimeneprojekt;  // nimeruum, sissaldab loogeliste sulgude vahel konte
 internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp , kus sees on kogu programmi kood.
 {
     static void Main(string[] args) // "Main" on programmi ees olev meetod mis vaikimis käivitatakse kui ei ole teist meetodit määratud.
-    { 
-        /* ------------------------Teooria-------------------------------
-        //ctrl + k + c/u
-        
-                 LIHT ANDMTÜÜBID         
-        string tekst = "mingisugune inimloetav tekst" //tekst
-        char täht = 'A'; // üks täht '' vahele
-        int arv = 1; //täisarv
-        float komakohagaarv = 1.5f; //32bi
-        double suuremakomakohagaarv = 1.5d; //64bit
-        decimal kümendsüstemikomakohagaarv = 1.5M;
-        var X = 123; //umbmäärane andmetüübiga ajutine muutuja
-        var Y = "ABC";
-        bool jahvõiei = false; //kas true või false.
+    {
+    /* ------------------------Teooria-------------------------------
+    //ctrl + k + c/u
 
-        //                 ------ K A I T S T U D  S Õ N A D -----
+             LIHT ANDMTÜÜBID         
+    string tekst = "mingisugune inimloetav tekst" //tekst
+    char täht = 'A'; // üks täht '' vahele
+    int arv = 1; //täisarv
+    float komakohagaarv = 1.5f; //32bi
+    double suuremakomakohagaarv = 1.5d; //64bit
+    decimal kümendsüstemikomakohagaarv = 1.5M;
+    var X = 123; //umbmäärane andmetüübiga ajutine muutuja
+    var Y = "ABC";
+    bool jahvõiei = false; //kas true või false.
 
-        //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
-        //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
+    //                 ------ K A I T S T U D  S Õ N A D -----
 
-        //    abstract    as           base       bool       break       byte        case
-        //    catch       char         checked    class      count       continue    decimal
-        //    default     delegate     do         double     else        enum        event
-        //    explicit    extern       false      finally    fixed       float       for
-        //    foreach     goto         if         implicit   in          int         interface
-        //    internal    is           lock       long       namespace   new         null
-        //    object      operator     out        override   params      private     protected
-        //    public      readonly     ref        return     sbyte       sealed      short 
-        //    sizeof      stackalloc   static     string     struck      switch      this
-        //    throw       true         try        typeof     uint        ulong       unchecked 
-        //    unsafe      ushort       using      virtual    void        volatile    while
-         
-        // ----------------------------------------------------------------------------------------------------
-        
-        //string string = "abc"; //very bad 
-        string sõne = "abc"; //good
-        
-        
-        int mingiarv = 4;
+    //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
+    //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
 
-        mingiarv = mingiarv + 15;   //
+    //    abstract    as           base       bool       break       byte        case
+    //    catch       char         checked    class      count       continue    decimal
+    //    default     delegate     do         double     else        enum        event
+    //    explicit    extern       false      finally    fixed       float       for
+    //    foreach     goto         if         implicit   in          int         interface
+    //    internal    is           lock       long       namespace   new         null
+    //    object      operator     out        override   params      private     protected
+    //    public      readonly     ref        return     sbyte       sealed      short 
+    //    sizeof      stackalloc   static     string     struck      switch      this
+    //    throw       true         try        typeof     uint        ulong       unchecked 
+    //    unsafe      ushort       using      virtual    void        volatile    while
 
-        mingiarv = mingiarv - 15;   //
+    // ----------------------------------------------------------------------------------------------------
 
-        mingiarv = mingiarv * 15;   //
+    //string string = "abc"; //very bad 
+    string sõne = "abc"; //good
 
-        mingiarv = mingiarv / 15;   //
 
+    int mingiarv = 4;
 
-        mingiarv += 15;   //
+    mingiarv = mingiarv + 15;   //
 
-        mingiarv -= 15;   //
+    mingiarv = mingiarv - 15;   //
 
-        mingiarv *= 15;   //
+    mingiarv = mingiarv * 15;   //
 
-        mingiarv /= 15;   //
+    mingiarv = mingiarv / 15;   //
 
-          O M I S T U S    O P E R A A T O R I D 
 
+    mingiarv += 15;   //
 
-        // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
-        int muutuuja = 1;
-        // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
-        muutuuja += 2;
-        // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja -= 1;
-        // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja *= 4;
-        // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja /= 4;
-        // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
-        muutuuja %= 2;
-        // ++ e. kiirtehe mis liidab ainult 1 juurde
-        muutuuja++;
-        // -- e kiirtehe mis lahutab ainult 1 maha
-        muutuuja--;
+    mingiarv -= 15;   //
 
+    mingiarv *= 15;   //
 
-         V Õ R D L U S    O P E R A A T O R I D 
-        
-        // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
+    mingiarv /= 15;   //
 
-        // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
+      O M I S T U S    O P E R A A T O R I D 
 
-        // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
 
-        // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
+    // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
+    int muutuuja = 1;
+    // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
+    muutuuja += 2;
+    // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja -= 1;
+    // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja *= 4;
+    // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja /= 4;
+    // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
+    muutuuja %= 2;
+    // ++ e. kiirtehe mis liidab ainult 1 juurde
+    muutuuja++;
+    // -- e kiirtehe mis lahutab ainult 1 maha
+    muutuuja--;
 
-        // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
 
-        // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
+     V Õ R D L U S    O P E R A A T O R I D 
 
+    // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
 
-        L O O G I L I S E D      O P E R A A T O R I D
+    // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
 
-        // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
-        (true + true = true)
-        // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
+    // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
 
-        // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
+    // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
 
-                         --      T I N G I M U S L A U S E      --
-        
-         //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
+    // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
 
-        if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
+    // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
 
-        else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
 
-        else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
-        
-        //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
-        */
+    L O O G I L I S E D      O P E R A A T O R I D
 
-/*
-int option = 3;
+    // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
+    (true + true = true)
+    // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
 
-switch(option) {  //Switch n kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
-                  //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
-                  //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
+    // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
 
-    case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
-                  //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
-                  //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
-        Console.WriteLine("nope");
-        break;
-        case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
+                     --      T I N G I M U S L A U S E      --
 
-        break;
+     //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
 
-        case 3:
-        Console.WriteLine(option);  // antud juhtul kuvatakse muutujas option asuv väärtus välja 
-        break;
+    if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
 
-    default:  //default juhtum täitub siis kui ülejäänud juhtumid ei kata switchi lülitusvalikus olevas muutujas asuvat väärtust
-              // toimib nag else , kuid erinevalt if elsei else struktuuist , võib default olla ka alguses.
-        Console.WriteLine("best wishes stranger");
-        break;    // Kui antud juhtumi tegevus on tehtud väljutakse mitte ainult juhtumist vaid ka kogu käesolevast switchcase tingimustikust
-                  // peale breaki on lauselõpu märk.
-}
-*/
+    else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
 
-/*
+    else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
 
-
-
- //   - S Ü N T A K S -- */
-
-
-/*  Console.WriteLine("Ommik");
-  string vastus = Console.ReadLine();
-  Console.WriteLine(":3");
-
-
-  // 1      2   3   4  5
-  string näidis = "def";*/ //1 muutuja kirjutatakse alustades andmetüübist , ilma andmetüübita ei saa muutujat deklareerida. 
-                           //2 seejärele kirjutatkse muutuja nimi mis kirjeldab andmeid ja nende nende andme eesmärki
-                           //  soovitatakse kasutada muutujate nimetamisele cameCase stiili. esimene sõna on väikse tähega ja ülejäänud on suuretähega algavad.
-                           //3 omistusoperaator mis annab andmed sisse.
-                           //4 andmed mida omistatakse.
-                           //5 lauselõpumärk.
-
-// ;           - iga koodi lause koodiploki sees lõppeb lauselõpu märgiga.
-// Console     - Console on C# käsurea addreseerimise pakett millega saab erinevaid operatsioone teha.
-// .           - kasutatakse addresseerimiseks et saada punktile eelnevalt objektist mingisuguse meetod funktsiooni mis kirjutatakse pärast punkti 
-//               võib mõelda kui kaustas olevat / släshi.
-// WriteLine   - WriteLine on funktsiooon mida parasjagu kasutatakse . WriteLine kuvab käsureale teksti või kaasatud parameetreid
-// ()          - sulupaar mis omab funktsiooni tõõks vajaliku infot / parameetreid
-// {}          - loogelised sulud tähistavad koodi plokki konteineri jaoks.
-// []          - kantsulud tähistavad masiivi.
-// ""          - tähistavad sõne andmetüüpi andmeid, andmed ise asuvad jutumärkide vahel.
-// string      - andmetüüp mis kirjutatakse alati muutuja ette , andmetüüübis endas asuvad ka andmetüübile vajalikud funktsioonid.
-// "vastus"    - muutuja mille nimi on vastus mis omab string tüüpi andmeid.mis omistatakse sinna sisse omistusoperaatoriga.
-// ReadLine(); - ReadLine on funktsiooon mida parasjagu kasutatakse . ReadLine loeb käsurealt vaike tüüpi sõne väärtuseid.
-// //          - tähistab ühearealist kommentaari
-// /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
-// ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
-//             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
-
-/* andmetüübi castimine e. teisendamine.
-
-
- //Castimine, on arvu teisendamine ühest andmetüübist teise. Castimist on kahte eri liiki , automaatne (implicit) ja automaatne (explicit) , 
-automaatne castimine toimub siis 
- // kui teisendatakse väiksemast andmetüübist suuremasse selliselt juhtul programmeerija spetsiifiliselt castima ei pea
- // manuaalne castimine toimub siis kui toimub castimine väiksemast andmetüüübist suuremasse , sellel juhtul on vaja panna muutuja ette sulupaar kui on soovitav andmetüüp sees.
-
-//manuaalne castimine
-
-  double minuData1 = 1.23d;            // tekitatakse või onolemas double tüüpi andmed muutujas minuData1 
- float minuFloat1 = (float)minuData1; // toimub teisendaminne väiksemasse Float andmetüüpi suuremast double andmetüübist
- long minuLong1 = (long)minuData1;   // toimub teisendaminne väiksemasse long andmetüüpi suuremast float andmetüübist
- int minuInt1 = (int)minuLong1;     // toimub teisendaminne väiksemasse int andmetüüpi suuremast long andmetüübist
- char newChar1 = (char)minuInt1;   // toimub teisendaminne väiksemasse char andmetüüpi suuremast int andmetüübist
-
-//automaatne castimine
-
- int backtoint = newChar1;           //toimub automaat teisendus väiksemast char andmetüübist suuremasse int andmetüüpi
- long backtolong = backtoint;        //toimub automaat teisendus väiksemast int andmetüübist suuremasse long andmetüüpi
- float backtofloat = backtolong;     //toimub automaat teisendus väiksemast long andmetüübist suuremasse float andmetüüpi
- double backtodouble = backtofloat;  //toimub automaat teisendus väiksemast float andmetüübist suuremasse double andmetüüpi
-
-// suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
-
-//       ------------  P A R S I M I N E  --------------
-
-// parsimine on tekstist katse teisendada mingit tüüpi arvandmeid . teisendus toimub küsides mingist andmetüübist  talle sisse ehitatud meetodi Parse() abil mingist sõnest arvandmeid
-
-string seenontekst = "1";                    // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust
-int teisendatud = int.Parse(seenontekst);   // muutuja "teisendatud" kuhu omistatakse Parse() meeetodi abil sõnest arvväärtus 
-Console.WriteLine(teisendatud);            // teisenduse väljakuvamine.
-
-
-// Parsimisel on ka alternatiivne meetod "TryParse()" tryparse üritab teisendada ning kui teisendus kukub läbi, tagastatakse algne väärtus/false
-
-string seenontekst2 = "2";                     // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust     
-int teisendatud2 = int.Parse(seenontekst2);    // muutuja "teisendatud2" omab potensiaalset muutujat 
-Console.WriteLine(teisendatud2);               // teisenduse väljakuvamine
-
-//converteerimine on mingisuguse andme otsene teisendus ükskõik mis teise andmetüüpi. Selle jaoks on olemas moodul "Convert" 
-//Convert moodulis on sarnaselt arvandmetüüpides olevale ToString() meetodile ka muude andmetüüpide vastavad konventermismeetodid.
-
-var mingiInfo = "6.7";                                    //teisendamist vaja info
-string mingiInfoTekst Convert.ToString(mingiInfo);        // convert teisendab mingist tundmatust andmetüübist ifo strngiks /sõneks
-char mingiInfoChar; Convert.ToChar(mingiInfo);            // teisendus täheks 
-int mingiInfoInt; Convert.ToInt32(mingiInfo);             // teisendab int andmetüübiks
-long mingiInfoLong; Convert.ToInt64(mingiInfo);           // teisendab Long andmetüübiks 
-decimal mingiInfoDecimal; Convert.ToDecimal(mingiInfo);   // teisendab decimaliks
-double mingiInfoDouble; Convert.ToDouble(mingiInfo);      // teisendab double andmetüübiks
-byte mingiInfoByte; Convert.ToByte(mingiInfo);            // teisendab baidiks
-bool mingiInfoBool; Convert.ToBoolean(mingiInfo);         // teisendab Boolean andmetüübiks
-
-//  ---------------------- T S Ü K L I D ------------------
-/*
-// truslid on programmeerimises viis kuidas automatiseerida korduv tegevus ära , see aitab hoida andmmahtu kokku . programeerija sama 
-//koodi mitu korda kirjutamisest, ning väldib ka korduvatest tekkinud vigu. C# on neli peamis tsükli liiki -
-
-// tsüklitel on 3 peamist komponenti - käsklus ise , tsükli tingimus ja tehtav kood
-// do-while
-// while
-// for 
-// foreach
-*/
-// ------------------   D O   W H I L E    -------------------
-
-//1.do-while   // erineb kõigist teistest sellega et tingimuste kontroll toimub pärast esimese tegevuse ringi kõikide teistes tsüklitestoimub
-               // tingimuste kontroll enne esimest ringi
-
-
-            int tsüklimuutuja = 0;                  //mingisugune muutuja mis omab tsükli töö tingimusabil kontrollimiseks vajalikku väärtust e. tsüklimuutujat
-            do                                      // do on kaitstud sõna mis alustab do while tsüklit , sellele järgne tsüklis tehtav                                        // koodiplokk ning mis esimene ring täidetakse ilma tingimuse kontrollita
-{
-
-             Console.WriteLine(tsüklimuutuja);      //koodiploki sees olev tegevus, antud juhul kuvatakse tsüklimuutuja arv välja                     
-            tsüklimuutuja++;                        //ning tsüklimuutujat suurendatakse
-    // ILMA TSÜKLIMUUTUJA kaasmata käib tsükkel lõpmatult
-}           while  (tsüklimuutuja != 5 );           // while on kaitstud sõna mis do while tsükli lõpetab, pärast seda toimub esimenne tingimuskontroll kus kontrollitakse
-                                                    // tsükli tööse kaasatud olukorda , kui tingimus täitub e. true , täidetakse veel 1 ring ning täidetakse veel 1 ring
-                                                    // ning kontrollitakse tingimust uuesti.antud juhul tsükkel toimib niikaua kuni tsükli muutuja ei ole 5.
-/*
-//        ----------------------   W H I L E    -------------------
-
-//2.while
-
-//            --------------------- F O R -------------------- 
-
-//3.for 
-
-//        -------------------- F O R E A C H ---------------------
-
-//4.foreach
-
-
-
-//-------------------  T E O O R I A   L Õ P P  ------------------
-/*
-ALGUS:
-(future mune)
-
-
-Switch(Valik):
-
-default:
-
-Console.WriteLine("Sellist programmi ei eksisteeri");
-Thread.Sleep(3000)
-Goto ALGUS;
-
-
-//        -----------------------   näiteprogramm 1   -------------------------
-
-Case("1"):
-
-int palk = 2345;
-int kulud = 0;
-
-Console.WriteLine("kas see kuu kulusid või väljaminekuid olid (jah/ei) ?");
-string kasutajavastus = "";
-kasutajavastus = Console.ReadLine();
-if (kasutajavastus == "jah") ;
-{
-    Console.WriteLine("sisestage kõik kulud ühe arvuna");
-    kulud = int.Parse(Console.ReadLine());
-}
-
-int kontojääk = palk - kulud;
-Console.WriteLine(kontojääk+" puulehte on alles.");
-
-Console.WriteLine("Palusn sisesta oma hästi tehtud töö boonus");
-int boonus = int.Parse(Console.ReadLine());
-kontojääk = kontojääk + boonus;
-Console.WriteLine("sinu lõppväjavõte on "+kontojääk+" puulehte");
-Break;
-*/
-
-//        -----------------------   näiteprogramm 2   -------------------------
-
-/*
-    * klient tahab et programm teeks: 
-    * programm küsib kasutajalt tema vanust
-    * kui ta on noorem kui 18 öeldakse kasutajale "alaealisi sisse ei lasta"
-    * kui on vanem kui 18, pakutakse mojitot
-    * 
+    //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
     */
 
-//int kasutajaVanus = 0; 
-//Console.WriteLine("Kui vana sa oled?");
-//kasutajaVanus = int.Parse(Console.ReadLine());
-//if (kasutajaVanus >= 18)
-//{
-//    Console.WriteLine("Tere, siin on sinu mojito 🍹");
-//}
-//else 
-//{
-//    Console.WriteLine("Alaealisi sisse ei lasta, mine vembutembumaale. 🤡");
-//}
+    /*
+    int option = 3;
 
-/*
+    switch(option) {  //Switch n kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
+                      //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
+                      //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
 
-//        -----------------------   näiteprogramm 3   -------------------------
-
-string KasutajaNimi = "";
-string KasutajaParool = "";
-
-
-Console.WriteLine("Palun sisesta oma kasutajanimi");
-KasutajaNimi = Console.ReadLine();
-
-Console.WriteLine("palun sisesta oma parool");
-KasutajaParool = Console.ReadLine();
-
-if (KasutajaNimi == "User1" && KasutajaParool == "qwerty")
-{
-    Console.WriteLine("Tere tulemast "+KasutajaNimi+", olete edukalt sisse logitud");  
-}
-else
-{
-    Console.WriteLine("Kasutajanimi või parool pole õige, Sissepääs on keelatud");
-}
-
-
-/*---------------------------------- näiteülesanne 4 ----------------------------------------*/
-
-/*
-// int muutuja = 0;
-
-Console.WriteLine("Palun sisesta oma vanus");
-int kasutajavanus = int.Parse(Console.ReadLine());
-
-Console.WriteLine("Palun sisesta oma vanavanaema vanus");
-int kasutajavanavanaemavanus = int.Parse(Console.ReadLine());
-
-//int vanustevahe = kasutajavanavanaemavanus - kasutajavanus;
-
-Console.WriteLine("Vannuste vahe hetkel on "+(kasutajavanavanaemavanus - kasutajavanus));
-Console.WriteLine("kui palju sa vanem oled ?");
-kasutajavanus += int.Parse(Console.ReadLine());
-Console.WriteLine("Vanuste vahe nüüd on "+(kasutajavanavanaemavanus - kasutajavanus));
-
-// Console.WriteLine("vanuste vahe ei muutu :3 silly "+((kasutajavanavanaemavanus + muutuja)-(kasutajavanus + muutuja)));
-
-
-*/
-/*
-
-* programm küsib kas ta on 18 "alaealise sisse ei lasta"
-* kui ta on vanem kui 18 , pakutakse mojitot
-
-
-int kasutajavanus = 0;
-Console.WriteLine("kui vana sa oled?");
-kasutajavanus = int.Parse(Console.ReadLine());
-if (kasutajavanus >= 18)
-{
-Console.WriteLine("Tere siin on sinu mojito🍸");
-}
-else
-{
-Console.WriteLine("Alaealisi sisse ei lubata , mine vembutembumaale");
-}
-*/
-/*------------------ näite programm 5 -------------------*/
-/*
-Console.WriteLine("Kui kaugele oli su viimane kuulitõuge? (m)");
-float kaugus = float.Parse(Console.ReadLine());
-if (kaugus <= 1.00 && kaugus >= 0.00)
-{
-
-    Console.WriteLine("when you try your best but you don't succeed");
-}
-else if (kaugus <= 2.00 && <= 1.01)
-{
-    Console.WriteLine("natukene veel võibolla");
-}
-else if (kaugus <= 3.00 && kaugus >= 2.01)
-{
-    Console.WriteLine("hell yeah broth tegid ära");
-}
-else if (kaugus < 0)
-{
-    Console.WriteLine("Vale pool silly billy");
-}
-else 
-{
-    Console.WriteLine("NAH sa defo oled cheatinud");
-}
- */
-
-/*----------------- Näite Programm 6 -----------------------*/
-/*
-Console.WriteLine("Palun sisesta oma vanus.NB! kirjuta täis arvuna!");
-int isikuvanus = 0;
-isikuvanus = int.Parse(Console.ReadLine());
-if (isikuvanus <= 0) 
-{
-    Console.WriteLine("ajarändureid me ei teeninda!!!");
-}
-else if (isikuvanus > 0 && isikuvanus < 18)
-{
-    Console.WriteLine("Palun sisesta oma nimi");
-    string kasutajanimi = "";
-    kasutajanimi = Console.ReadLine();
-    Console.WriteLine($"Kallis {kasutajanimi} palun kutsu siia oma lapsevanem ");
-}
-else
-{
-    Console.WriteLine("Palun kirjuta siia oma eesnimi");
-    string eesnimi = "";
-    eesnimi = Console.ReadLine();
-
-    Console.WriteLine("Palun kirjuta siia ka oma perekonnanimi");
-    string perekonnanimi = "";
-    perekonnanimi = Console.ReadLine();
-    if (eesnimi == "" || perekonnanimi == "")
-    {
-        Console.WriteLine("sisestama pidi mõlemad nimed :<");
-    }
-    else
-    {
-        Console.WriteLine($"Teretulemast {eesnimi} {perekonnanimi}");
-    }
-
-}
-*/
-
-
-
-/*
- Näite programme 3 
-küsib  kasutajalt tema kasutaja nime. 
-küsib kasutajalt tema parooli.
-logib kasutaja sisse kui mõlemad on õiged.
-
-(eraldi failina githubis)
-//hint: &&
- */
-
-// --------------- näiteülesanne 7 ---------------
-/*
-int minuArv = 9001;
-Console.WriteLine(minuArv);
-double minuDOuble = minuArv;
-Console.WriteLine(minuDOuble);
-
-
-double minuUuusDouble = 6.7;
-    Console.WriteLine(minuUuusDouble);
-int minuUusArv = (int)minuUuusDouble;
-Console.WriteLine(minuUusArv);
-
-Console.Clear();
-// castimise näide
-double minuData1 = 1.23d;
-float minuFloat1 = (float)minuData1;
-long minuLong1 = (long)minuData1;
-int minuInt1 = (int)minuLong1;
-char newChar1 = (char)minuInt1;
-
-int backtoint = newChar1;
-long backtolong = backtoint;
-float backtofloat = backtolong;
-double backtodouble = backtofloat;
-*/
-
-
-/*
-Console.WriteLine("Palun sisestage esimene arv");
-float Arv1 = 0;
-Arv1 = float.Parse(Console.ReadLine());
-
-Console.WriteLine("Palun sisestage teine arv");
-float Arv2 = 0;
-Arv2 = float.Parse(Console.ReadLine());
-
-
-Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
-string TehteTüüp = "";
-TehteTüüp = Console.ReadLine();
-double TehteTulemus = 0;
-
-if (TehteTüüp != "")
-{
-
-
-    switch (TehteTüüp)
-    {
-
-        case ("+"):
-
-            TehteTulemus = Arv1 + Arv2;
+        case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
+                      //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
+                      //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
+            Console.WriteLine("nope");
+            break;
+            case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
 
             break;
 
-
-        case ("-"):
-
-            TehteTulemus = Arv1 - Arv2;
-
+            case 3:
+            Console.WriteLine(option);  // antud juhtul kuvatakse muutujas option asuv väärtus välja 
             break;
 
-        case ("*"):
-
-            TehteTulemus = Arv1 * Arv2;
-
-            break;
-
-        case ("/"):
-
-            TehteTulemus = Arv1 / Arv2;
-
-            break;
-
-        case ("^"):
-
-            TehteTulemus = Math.Pow(Arv1, Arv2);
-
-            break;
-
-        case ("V"):
-
-            TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
-
-            break;
-
-        default:
-
-            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-
-            return;
+        default:  //default juhtum täitub siis kui ülejäänud juhtumid ei kata switchi lülitusvalikus olevas muutujas asuvat väärtust
+                  // toimib nag else , kuid erinevalt if elsei else struktuuist , võib default olla ka alguses.
+            Console.WriteLine("best wishes stranger");
+            break;    // Kui antud juhtumi tegevus on tehtud väljutakse mitte ainult juhtumist vaid ka kogu käesolevast switchcase tingimustikust
+                      // peale breaki on lauselõpu märk.
     }
-    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-}
-else 
-{
-    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-}
-*/
+    */
+
+    /*
 
 
-// ---------------------- the hell version. --------------------------------
 
-/*
-Console.WriteLine("Palun sisestage esimene arv");
-float Arv1 = 0;
-Arv1 = float.Parse(Console.ReadLine());
-
-Console.WriteLine("Palun sisestage teine arv");
-float Arv2 = 0;
-Arv2 = float.Parse(Console.ReadLine());
+     //   - S Ü N T A K S -- */
 
 
-Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
-string TehteTüüp = "";
-TehteTüüp = Console.ReadLine();
-double TehteTulemus = 0;
-
-if (TehteTüüp != "")
-{
+    /*  Console.WriteLine("Ommik");
+      string vastus = Console.ReadLine();
+      Console.WriteLine(":3");
 
 
-    if (TehteTüüp == "+")
+      // 1      2   3   4  5
+      string näidis = "def";*/ //1 muutuja kirjutatakse alustades andmetüübist , ilma andmetüübita ei saa muutujat deklareerida. 
+                               //2 seejärele kirjutatkse muutuja nimi mis kirjeldab andmeid ja nende nende andme eesmärki
+                               //  soovitatakse kasutada muutujate nimetamisele cameCase stiili. esimene sõna on väikse tähega ja ülejäänud on suuretähega algavad.
+                               //3 omistusoperaator mis annab andmed sisse.
+                               //4 andmed mida omistatakse.
+                               //5 lauselõpumärk.
+
+    // ;           - iga koodi lause koodiploki sees lõppeb lauselõpu märgiga.
+    // Console     - Console on C# käsurea addreseerimise pakett millega saab erinevaid operatsioone teha.
+    // .           - kasutatakse addresseerimiseks et saada punktile eelnevalt objektist mingisuguse meetod funktsiooni mis kirjutatakse pärast punkti 
+    //               võib mõelda kui kaustas olevat / släshi.
+    // WriteLine   - WriteLine on funktsiooon mida parasjagu kasutatakse . WriteLine kuvab käsureale teksti või kaasatud parameetreid
+    // ()          - sulupaar mis omab funktsiooni tõõks vajaliku infot / parameetreid
+    // {}          - loogelised sulud tähistavad koodi plokki konteineri jaoks.
+    // []          - kantsulud tähistavad masiivi.
+    // ""          - tähistavad sõne andmetüüpi andmeid, andmed ise asuvad jutumärkide vahel.
+    // string      - andmetüüp mis kirjutatakse alati muutuja ette , andmetüüübis endas asuvad ka andmetüübile vajalikud funktsioonid.
+    // "vastus"    - muutuja mille nimi on vastus mis omab string tüüpi andmeid.mis omistatakse sinna sisse omistusoperaatoriga.
+    // ReadLine(); - ReadLine on funktsiooon mida parasjagu kasutatakse . ReadLine loeb käsurealt vaike tüüpi sõne väärtuseid.
+    // //          - tähistab ühearealist kommentaari
+    // /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
+    // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
+    //             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
+
+    /* andmetüübi castimine e. teisendamine.
+
+
+     //Castimine, on arvu teisendamine ühest andmetüübist teise. Castimist on kahte eri liiki , automaatne (implicit) ja automaatne (explicit) , 
+    automaatne castimine toimub siis 
+     // kui teisendatakse väiksemast andmetüübist suuremasse selliselt juhtul programmeerija spetsiifiliselt castima ei pea
+     // manuaalne castimine toimub siis kui toimub castimine väiksemast andmetüüübist suuremasse , sellel juhtul on vaja panna muutuja ette sulupaar kui on soovitav andmetüüp sees.
+
+    //manuaalne castimine
+
+      double minuData1 = 1.23d;            // tekitatakse või onolemas double tüüpi andmed muutujas minuData1 
+     float minuFloat1 = (float)minuData1; // toimub teisendaminne väiksemasse Float andmetüüpi suuremast double andmetüübist
+     long minuLong1 = (long)minuData1;   // toimub teisendaminne väiksemasse long andmetüüpi suuremast float andmetüübist
+     int minuInt1 = (int)minuLong1;     // toimub teisendaminne väiksemasse int andmetüüpi suuremast long andmetüübist
+     char newChar1 = (char)minuInt1;   // toimub teisendaminne väiksemasse char andmetüüpi suuremast int andmetüübist
+
+    //automaatne castimine
+
+     int backtoint = newChar1;           //toimub automaat teisendus väiksemast char andmetüübist suuremasse int andmetüüpi
+     long backtolong = backtoint;        //toimub automaat teisendus väiksemast int andmetüübist suuremasse long andmetüüpi
+     float backtofloat = backtolong;     //toimub automaat teisendus väiksemast long andmetüübist suuremasse float andmetüüpi
+     double backtodouble = backtofloat;  //toimub automaat teisendus väiksemast float andmetüübist suuremasse double andmetüüpi
+
+    // suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
+
+    //       ------------  P A R S I M I N E  --------------
+
+    // parsimine on tekstist katse teisendada mingit tüüpi arvandmeid . teisendus toimub küsides mingist andmetüübist  talle sisse ehitatud meetodi Parse() abil mingist sõnest arvandmeid
+
+    string seenontekst = "1";                    // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust
+    int teisendatud = int.Parse(seenontekst);   // muutuja "teisendatud" kuhu omistatakse Parse() meeetodi abil sõnest arvväärtus 
+    Console.WriteLine(teisendatud);            // teisenduse väljakuvamine.
+
+
+    // Parsimisel on ka alternatiivne meetod "TryParse()" tryparse üritab teisendada ning kui teisendus kukub läbi, tagastatakse algne väärtus/false
+
+    string seenontekst2 = "2";                     // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust     
+    int teisendatud2 = int.Parse(seenontekst2);    // muutuja "teisendatud2" omab potensiaalset muutujat 
+    Console.WriteLine(teisendatud2);               // teisenduse väljakuvamine
+
+    //converteerimine on mingisuguse andme otsene teisendus ükskõik mis teise andmetüüpi. Selle jaoks on olemas moodul "Convert" 
+    //Convert moodulis on sarnaselt arvandmetüüpides olevale ToString() meetodile ka muude andmetüüpide vastavad konventermismeetodid.
+
+    var mingiInfo = "6.7";                                    //teisendamist vaja info
+    string mingiInfoTekst Convert.ToString(mingiInfo);        // convert teisendab mingist tundmatust andmetüübist ifo strngiks /sõneks
+    char mingiInfoChar; Convert.ToChar(mingiInfo);            // teisendus täheks 
+    int mingiInfoInt; Convert.ToInt32(mingiInfo);             // teisendab int andmetüübiks
+    long mingiInfoLong; Convert.ToInt64(mingiInfo);           // teisendab Long andmetüübiks 
+    decimal mingiInfoDecimal; Convert.ToDecimal(mingiInfo);   // teisendab decimaliks
+    double mingiInfoDouble; Convert.ToDouble(mingiInfo);      // teisendab double andmetüübiks
+    byte mingiInfoByte; Convert.ToByte(mingiInfo);            // teisendab baidiks
+    bool mingiInfoBool; Convert.ToBoolean(mingiInfo);         // teisendab Boolean andmetüübiks
+
+    //  ---------------------- T S Ü K L I D ------------------
+    /*
+    // truslid on programmeerimises viis kuidas automatiseerida korduv tegevus ära , see aitab hoida andmmahtu kokku . programeerija sama 
+    //koodi mitu korda kirjutamisest, ning väldib ka korduvatest tekkinud vigu. C# on neli peamis tsükli liiki -
+
+    // tsüklitel on 3 peamist komponenti - käsklus ise , tsükli tingimus ja tehtav kood
+    // do-while
+    // while
+    // for 
+    // foreach
+    */
+    // ------------------   D O   W H I L E    -------------------
+    /*
+    //1.do-while   // erineb kõigist teistest sellega et tingimuste kontroll toimub pärast esimese tegevuse ringi kõikide teistes tsüklitestoimub
+                   // tingimuste kontroll enne esimest ringi
+
+
+                int tsüklimuutuja = 0;                  //mingisugune muutuja mis omab tsükli töö tingimusabil kontrollimiseks vajalikku väärtust e. tsüklimuutujat
+                do                                      // do on kaitstud sõna mis alustab do while tsüklit , sellele järgne tsüklis tehtav                                        // koodiplokk ning mis esimene ring täidetakse ilma tingimuse kontrollita
     {
-        TehteTulemus = Arv1 + Arv2;
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "-")
-    {
-        TehteTulemus = Arv1 - Arv2;
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "*")
-    {
-        TehteTulemus = Arv1 * Arv2;
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "*")
-    {
-        TehteTulemus = Arv1 * Arv2;
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "/")
-    {
-        TehteTulemus = Arv1 / Arv2;
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "^")
-    {
-        TehteTulemus = Math.Pow(Arv1, Arv2);
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else if (TehteTüüp == "V")
-    {
-        TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
-        Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
-    }
-    else
-    {
-        Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
-    }
-}
 
-*/
+                 Console.WriteLine(tsüklimuutuja);      //koodiploki sees olev tegevus, antud juhul kuvatakse tsüklimuutuja arv välja                     
+                tsüklimuutuja++;                        //ning tsüklimuutujat suurendatakse
+        // ILMA TSÜKLIMUUTUJA kaasmata käib tsükkel lõpmatult
+    }           while  (tsüklimuutuja != 5 );           // while on kaitstud sõna mis do while tsükli lõpetab, pärast seda toimub esimenne tingimuskontroll kus kontrollitakse
+                                                        // tsükli tööse kaasatud olukorda , kui tingimus täitub e. true , täidetakse veel 1 ring ning täidetakse veel 1 ring
+                                                        // ning kontrollitakse tingimust uuesti.antud juhul tsükkel toimib niikaua kuni tsükli muutuja ei ole 5.
+    /*
 
-// -------------- näiteülesanne 8 ------------
+    //        ----------------------   W H I L E    -------------------
 
-// Kirjuta programmis mis 
-// küsib kasutajatelt pikkust  sentimeetritest
-// küsib teiste pereliikmete pikkust 
-// programm arvutab välja perekonna keskmise pikkuse
-// vanemate keskmise pikkuse , laste pikkuse , ja mõlema vahe
-// kõik arvud programmis peab esitama komakohtadega arvudega
+    //2.while
+
+    //            --------------------- F O R -------------------- 
+
+    //3.for 
+
+    //        -------------------- F O R E A C H ---------------------
+
+    //4.foreach
 
 
 
-//me fix later 
+    //-------------------  T E O O R I A   L Õ P P  ------------------
+    */
+    ALGUS:
+        Console.Clear();
 
-/*
-List<int> vanused = new List<int>();
-List<string> isikud = new List<string>{} ("sinu","oma venna","oma isa"," oma ema");
-int i = 0;
-do
-{
-    Console.WriteLine("Sisesta"+isikud.ElementAt(i)+" pikkus sentimeetrites");
-    //kuvame kasutajale teate koos isikuga mida addresseritakse tsüklimuutuja abil järjendist "isikud"
-    vanused.Add(int.Parse(Console.ReadLine()));
-    //.add on listi meetod elemendi lisamiseks. lisatakse parsitud täisarv käsurea pealt
-    i++;
-    // lisatakse i muutujasse 1 
-}
-while {i < isikud.Count};
-
-float perekonnakeskmine = ((float)(vanused.ElementAt(0)+ vanused.ElementAt(3) + vanused.ElementAt(1) + vanused.ElementAt(2)) /4)/100;
-float Vanematekeskmine = ((float)(vanused.ElementAt(3) + vanused.ElementAt(2)) /2)/100;
-float lastekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(1)) /2)/100;
-float Vahe = 0;
-if (Vanematekeskmine > lastekeskmine)
-{
-    Vahe = Vanematekeskmine - lastekeskmine;
-}
-else
-{
-    Vahe = lastekeskmine - Vanematekeskmine;
-}
-Console.WriteLine("perekonna keskmine on "+Math.Round(perekonnakeskmine,2)+" m. vanematekeskmine on "+Math.Round(Vanematekeskmine,2)+" m. Lastekeskmine on "+Math.Round(lastekeskmine, 2) +" m. kahekeskmine vahe on "+Math.Round(Vahe, 2) +" m. ");
-*/
+        Console.WriteLine("Avamenüü :>");
+        Console.WriteLine("1.Näiteprogramm 1");
+        Console.WriteLine("2.Näiteprogramm 2");
+        Console.WriteLine("3.Näiteprogramm 3");
+        Console.WriteLine("4.Näiteprogramm 4");
+        Console.WriteLine("5.Näiteprogramm 5");
+        Console.WriteLine("6.Näiteprogramm 6");
+        Console.WriteLine("7.Näiteprogramm 7");
+        Console.WriteLine("8.Näiteprogramm 8");
+        Console.WriteLine("exit.Sulge programm");
 
 
+        string Valik = "";
+        Valik = Console.ReadLine();
+        
+        switch (Valik)
+        {
 
+
+            default:
+                Console.WriteLine("Ei ole valikus");
+                Thread.Sleep(3000);
+                goto ALGUS;
+                break;
+            //        -----------------------   näiteprogramm 1   -------------------------
+
+
+            case "1":
+
+                Console.Clear();
+                int palk = 2345;
+        int kulud = 0;
+
+        Console.WriteLine("kas see kuu kulusid või väljaminekuid olid (jah/ei) ?");
+        string kasutajavastus = "";
+        kasutajavastus = Console.ReadLine();
+        if (kasutajavastus == "jah") ;
+        {
+            Console.WriteLine("sisestage kõik kulud ühe arvuna");
+            kulud = int.Parse(Console.ReadLine());
+        }
+
+        int kontojääk = palk - kulud;
+        Console.WriteLine(kontojääk + " puulehte on alles.");
+
+        Console.WriteLine("Palusn sisesta oma hästi tehtud töö boonus");
+        int boonus = int.Parse(Console.ReadLine());
+        kontojääk = kontojääk + boonus;
+        Console.WriteLine("sinu lõppväjavõte on " + kontojääk + " puulehte");
+
+                Thread.Sleep(3000);
+                Console.WriteLine("Vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+            //        -----------------------   näiteprogramm 2   -------------------------
+
+                /*
+                * klient tahab et programm teeks: 
+                * programm küsib kasutajalt tema vanust
+                * kui ta on noorem kui 18 öeldakse kasutajale "alaealisi sisse ei lasta"
+                * kui on vanem kui 18, pakutakse mojitot
+                */
+
+            case "2":
+                Console.Clear();
+                int kasutajaVanus = 0; 
+        Console.WriteLine("Kui vana sa oled?");
+        kasutajaVanus = int.Parse(Console.ReadLine());
+        if (kasutajaVanus >= 18)
+        {
+            Console.WriteLine("Tere, siin on sinu mojito 🍹");
+        }
+        else 
+        {
+            Console.WriteLine("Alaealisi sisse ei lasta, mine vembutembumaale. 🤡");
+        }
+
+                Thread.Sleep(3000);
+                Console.WriteLine("Vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+
+
+            //        -----------------------   näiteprogramm 3   -------------------------
+
+            /*
+             Näite programme 3 
+            küsib  kasutajalt tema kasutaja nime. 
+            küsib kasutajalt tema parooli.
+            logib kasutaja sisse kui mõlemad on õiged.
+
+            (eraldi failina githubis)
+            //hint: &&
+             */
+
+            case "3":
+                Console.Clear();
+                string KasutajaNimi = "";
+                string KasutajaParool = "";
+
+
+                Console.WriteLine("Palun sisesta oma kasutajanimi");
+                KasutajaNimi = Console.ReadLine();
+
+                Console.WriteLine("palun sisesta oma parool");
+                KasutajaParool = Console.ReadLine();
+
+                if (KasutajaNimi == "User1" && KasutajaParool == "qwerty")
+                {
+                    Console.WriteLine("Tere tulemast "+KasutajaNimi+", olete edukalt sisse logitud");  
+                }
+                else
+                {
+                    Console.WriteLine("Kasutajanimi või parool pole õige, Sissepääs on keelatud");
+                }
+
+                Thread.Sleep(3000);
+                Console.WriteLine("Vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+            /*---------------------------------- näiteülesanne 4 ----------------------------------------*/
+
+            case"4":
+                Console.Clear();
+                // int muutuja = 0;
+
+                Console.WriteLine("Palun sisesta oma vanus");
+                int kasutajavanus = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Palun sisesta oma vanavanaema vanus");
+                int kasutajavanavanaemavanus = int.Parse(Console.ReadLine());
+
+                //int vanustevahe = kasutajavanavanaemavanus - kasutajavanus;
+
+                Console.WriteLine("Vannuste vahe hetkel on "+(kasutajavanavanaemavanus - kasutajavanus));
+                Console.WriteLine("kui palju sa vanem oled ?");
+                kasutajavanus += int.Parse(Console.ReadLine());
+                Console.WriteLine("Vanuste vahe nüüd on "+(kasutajavanavanaemavanus - kasutajavanus));
+
+                // Console.WriteLine("vanuste vahe ei muutu :3 silly "+((kasutajavanavanaemavanus + muutuja)-(kasutajavanus + muutuja)));
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+
+                /*------------------ näite programm 5 -------------------*/
+                
+                case"5":
+                Console.Clear();
+                Console.WriteLine("Kui kaugele oli su viimane kuulitõuge? (m)");
+                float kaugus = float.Parse(Console.ReadLine());
+                if (kaugus <= 1.00 && kaugus >= 0.00)
+                {
+
+                    Console.WriteLine("when you try your best but you don't succeed");
+                }
+                else if (kaugus <= 2.00 && kaugus >= 1.01)
+                {
+                    Console.WriteLine("natukene veel võibolla");
+                }
+                else if (kaugus <= 3.00 && kaugus >= 2.01)
+                {
+                    Console.WriteLine("hell yeah broth tegid ära");
+                }
+                else if (kaugus < 0)
+                {
+                    Console.WriteLine("Vale pool silly billy");
+                }
+                else 
+                {
+                    Console.WriteLine("NAH sa defo oled cheatinud");
+                }
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+                /*----------------- Näite Programm 6 -----------------------*/
+                
+                case"6":
+                Console.Clear();
+                Console.WriteLine("Palun sisesta oma vanus.NB! kirjuta täis arvuna!");
+                int isikuvanus = 0;
+                isikuvanus = int.Parse(Console.ReadLine());
+                if (isikuvanus <= 0) 
+                {
+                    Console.WriteLine("ajarändureid me ei teeninda!!!");
+                }
+                else if (isikuvanus > 0 && isikuvanus < 18)
+                {
+                    Console.WriteLine("Palun sisesta oma nimi");
+                    string kasutajanimi = "";
+                    kasutajanimi = Console.ReadLine();
+                    Console.WriteLine($"Kallis {kasutajanimi} palun kutsu siia oma lapsevanem ");
+                }
+                else
+                {
+                    Console.WriteLine("Palun kirjuta siia oma eesnimi");
+                    string eesnimi = "";
+                    eesnimi = Console.ReadLine();
+
+                    Console.WriteLine("Palun kirjuta siia ka oma perekonnanimi");
+                    string perekonnanimi = "";
+                    perekonnanimi = Console.ReadLine();
+                    if (eesnimi == "" || perekonnanimi == "")
+                    {
+                        Console.WriteLine("sisestama pidi mõlemad nimed :<");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Teretulemast {eesnimi} {perekonnanimi}");
+                    }
+
+                }
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+
+
+
+            // --------------- näiteülesanne 7 ---------------
+            /*
+            int minuArv = 9001;
+            Console.WriteLine(minuArv);
+            double minuDOuble = minuArv;
+            Console.WriteLine(minuDOuble);
+
+
+            double minuUuusDouble = 6.7;
+                Console.WriteLine(minuUuusDouble);
+            int minuUusArv = (int)minuUuusDouble;
+            Console.WriteLine(minuUusArv);
+
+
+            // castimise näide
+            double minuData1 = 1.23d;
+            float minuFloat1 = (float)minuData1;
+            long minuLong1 = (long)minuData1;
+            int minuInt1 = (int)minuLong1;
+            char newChar1 = (char)minuInt1;
+
+            int backtoint = newChar1;
+            long backtolong = backtoint;
+            float backtofloat = backtolong;
+            double backtodouble = backtofloat;
+            */
+            case "7":
+
+                Console.Clear();
+                Console.WriteLine("Palun sisestage esimene arv");
+                float Arv1 = 0;
+                Arv1 = float.Parse(Console.ReadLine());
+
+                Console.WriteLine("Palun sisestage teine arv");
+                float Arv2 = 0;
+                Arv2 = float.Parse(Console.ReadLine());
+
+
+                Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
+                string TehteTüüp = "";
+                TehteTüüp = Console.ReadLine();
+                double TehteTulemus = 0;
+
+                if (TehteTüüp != "")
+                {
+
+
+                    switch (TehteTüüp)
+                    {
+
+                        case ("+"):
+
+                            TehteTulemus = Arv1 + Arv2;
+
+                            break;
+
+
+                        case ("-"):
+
+                            TehteTulemus = Arv1 - Arv2;
+
+                            break;
+
+                        case ("*"):
+
+                            TehteTulemus = Arv1 * Arv2;
+
+                            break;
+
+                        case ("/"):
+
+                            TehteTulemus = Arv1 / Arv2;
+
+                            break;
+
+                        case ("^"):
+
+                            TehteTulemus = Math.Pow(Arv1, Arv2);
+
+                            break;
+
+                        case ("V"):
+
+                            TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
+
+                            break;
+
+                        default:
+
+                            Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+
+                            return;
+                    }
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else 
+                {
+                    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+                }
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+
+            // ---------------------- the hell version. --------------------------------
+
+            /*
+            Console.WriteLine("Palun sisestage esimene arv");
+            float Arv1 = 0;
+            Arv1 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Palun sisestage teine arv");
+            float Arv2 = 0;
+            Arv2 = float.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Mis tehet sa teha soovid?(+ , - , / , * , ^ , V)");
+            string TehteTüüp = "";
+            TehteTüüp = Console.ReadLine();
+            double TehteTulemus = 0;
+
+            if (TehteTüüp != "")
+            {
+
+
+                if (TehteTüüp == "+")
+                {
+                    TehteTulemus = Arv1 + Arv2;
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "-")
+                {
+                    TehteTulemus = Arv1 - Arv2;
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "*")
+                {
+                    TehteTulemus = Arv1 * Arv2;
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "*")
+                {
+                    TehteTulemus = Arv1 * Arv2;
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "/")
+                {
+                    TehteTulemus = Arv1 / Arv2;
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "^")
+                {
+                    TehteTulemus = Math.Pow(Arv1, Arv2);
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else if (TehteTüüp == "V")
+                {
+                    TehteTulemus = Math.Pow(Arv1, 1 / Arv2);
+                    Console.WriteLine($"tehte tulemus on {Arv1} {TehteTüüp} {Arv2} = {TehteTulemus} ");
+                }
+                else
+                {
+                    Console.WriteLine("Tehtetüüp pole valitud, tehet ei sooritata.");
+                }
+            }
+
+            */
+
+            // -------------- näiteülesanne 8 ------------
+
+            // Kirjuta programmis mis 
+            // küsib kasutajatelt pikkust  sentimeetritest
+            // küsib teiste pereliikmete pikkust 
+            // programm arvutab välja perekonna keskmise pikkuse
+            // vanemate keskmise pikkuse , laste pikkuse , ja mõlema vahe
+            // kõik arvud programmis peab esitama komakohtadega arvudega
+
+
+
+            //me fix later   *fixed 25.01.26
+            case "8":
+                Console.Clear();
+                    List<int> vanused = new List<int>();
+                    List<string> isikud = new List<string> () {"sinu", "oma venna", "oma isa", " oma ema"};
+                    int i = 0;
+                    do
+                    {
+                        Console.WriteLine("Sisesta "+isikud.ElementAt(i)+" pikkus sentimeetrites");
+                        //kuvame kasutajale teate koos isikuga mida addresseritakse tsüklimuutuja abil järjendist "isikud"
+                        vanused.Add(int.Parse(Console.ReadLine()));
+                        //.add on listi meetod elemendi lisamiseks. lisatakse parsitud täisarv käsurea pealt
+                        i++;
+                        // lisatakse i muutujasse 1 
+                    }
+                    while (i < isikud.Count);
+
+                    float perekonnakeskmine = ((float)(vanused.ElementAt(0)+ vanused.ElementAt(3) + vanused.ElementAt(1) + vanused.ElementAt(2)) /4)/100;
+                    float Vanematekeskmine = ((float)(vanused.ElementAt(3) + vanused.ElementAt(2)) /2)/100;
+                    float lastekeskmine = ((float)(vanused.ElementAt(0) + vanused.ElementAt(1)) /2)/100;
+                    float Vahe = 0;
+                    if (Vanematekeskmine > lastekeskmine)
+                    {
+                        Vahe = Vanematekeskmine - lastekeskmine;
+                    }
+                    else
+                    {
+                        Vahe = lastekeskmine - Vanematekeskmine;
+                    }
+                    Console.WriteLine("perekonna keskmine on "+Math.Round(perekonnakeskmine,2)+" m. vanematekeskmine on "+Math.Round(Vanematekeskmine,2)+" m. Lastekeskmine on "+Math.Round(lastekeskmine, 2) +" m. kahekeskmine vahe on "+Math.Round(Vahe, 2) +" m. ");
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+            case "exit":
+                Console.Clear();
+                Console.WriteLine("Programm sulgeb mõne sekundi pärast");
+                Thread.Sleep(2500);
+                Environment.Exit(0);
+                break;
+
+
+
+
+        }    
 
 }
 }
