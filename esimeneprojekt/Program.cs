@@ -804,6 +804,45 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 Console.ReadLine();
                 goto ALGUS;
                 break;
+                // näiteülesanne 9 - sünoptiku sõnus 
+
+                /*
+                // kirjuta programm mis küsib kasutajalt ilma prognoosi viie jägmise päeva temperatuur ja ilmakirjeldus 
+                //kui sünoptik on sisestuse lõpetanud , kuva viie päeva mõlemad temperatuur ning ilma kirjeldus koos
+
+
+                */
+            case "9":
+                Console.Clear();
+
+
+                Console.WriteLine("tere sünoptik, ");
+                float temps = new float[5];          // temperatuuri massiiv .
+                string kirjeldus = new string[5];  // kirjelduse massiiv .
+
+                for (int i = 0; i < temps.Lenght; i++)  // võtame sünoptikust temperatuuri andmed üksvaahavl .
+                {
+                    Console.WriteLine("Esita palun järgmine temperatuur");
+                    temps[i] = float.Parse(Console.ReadLine());
+                }                for (int i = 0; i < kirjeldus.Lenght; i++)  // võtame sünoptikust päeva kirjelduse andmed üksvaahavl .
+                    // kirjelda ka eesolev nädal
+                { 
+                    Console.WriteLine("Kirjelda "+(i+1)+" päeva ");
+                    temps[i] = float.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Palun esita uudisejaamale ilmateade: ");
+                for(int i = 0; i < temps.Lenght; i++)
+                {
+                Console.WriteLine((i+1)+", Päeval on temperatuur " + temps[i]+" kraadi j ilm on "+ kirjeldus[i] + " .");
+                }
+
+
+
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
 
             case "exit":
                 Console.Clear();
