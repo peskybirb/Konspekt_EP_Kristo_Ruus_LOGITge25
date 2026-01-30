@@ -814,7 +814,9 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 */
             case "9":
                 Console.Clear();
+                // FIX ME LATER 
 
+                /*
 
                 Console.WriteLine("tere sünoptik, ");
                 float temps = new float[5];          // temperatuuri massiiv .
@@ -836,7 +838,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 Console.WriteLine((i+1)+", Päeval on temperatuur " + temps[i]+" kraadi j ilm on "+ kirjeldus[i] + " .");
                 }
 
-
+                */
 
                 Thread.Sleep(3000);
                 Console.WriteLine("vajauta enter et minna tagai avalehele");
