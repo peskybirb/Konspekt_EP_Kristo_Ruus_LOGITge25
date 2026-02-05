@@ -153,13 +153,14 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         /*
         int option = 3;
 
-        switch(option) {  //Switch n kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
+        switch(option) {  //Switch on kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
                           //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
                           //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
 
             case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
                           //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
                           //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
+
                 Console.WriteLine("nope");
                 break;
                 case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
@@ -853,6 +854,20 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 Environment.Exit(0);
                 break;
 
+                
+                 //1. 
+
+                string Nimi = "";
+                Console.WriteLine("Mis on sinu nimi ?");
+                Nimi = Console.ReadLine();
+                if (Nimi != "Nipitiri")
+                {
+                    Console.WriteLine("Sa ei ole nipitiri, ootan vaid teda :c");
+                }
+
+
+
+                //2.
 
 
 

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Kontroll_töö</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="C:\Users\opilane\Source\repos\LOGITge25\Kristo Ruus\Kordamisylesanded\KT STUFF\KTneli ülesannet.cs" Link="KTneli ülesannet.cs" />
+  </ItemGroup>
+
+</Project>
