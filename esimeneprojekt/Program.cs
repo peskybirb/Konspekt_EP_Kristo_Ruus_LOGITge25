@@ -25,7 +25,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
         // K O M P O S I I T   A N D M E T Ü Ü B I D
 
-        //1. massiiv 
+        //1.          ---------  M  A  S  I  I  V  --------- 
         /* MASSIIV */
 
         // [] massiiv on komposiit andmetüüp mille sees saab olla mitmeid samat tüüpi lihtandmeid . massiivi tähistatakse kant sulgudega 
@@ -51,325 +51,370 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                                                 // tagastatav väärtusess kuiPaljuOn . Väärtus saab olla ainult täisarv , poolikuid
                                                 // või osalisi elemente pole olemas.
         */
-        //                 ------ K A I T S T U D  S Õ N A D -----
 
-        //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
-        //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
+        //                ----------  L  O  E  N  D  -----------
 
-        //    abstract    as           base       bool       break       byte        case
-        //    catch       char         checked    class      count       continue    decimal
-        //    default     delegate     do         double     else        enum        event
-        //    explicit    extern       false      finally    fixed       float       for
-        //    foreach     goto         if         implicit   in          int         interface
-        //    internal    is           lock       long       namespace   new         null
-        //    object      operator     out        override   params      private     protected
-        //    public      readonly     ref        return     sbyte       sealed      short 
-        //    sizeof      stackalloc   static     string     struck      switch      this
-        //    throw       true         try        typeof     uint        ulong       unchecked 
-        //    unsafe      ushort       using      virtual    void        volatile    while
+        // list<T>    ---> loend on konposiit andmetüüp kus sarnaselt masiiviga saab olla mitmeid samat tüüpi andmeid.
+        //                 list kirjutatakse kui oma andmetüüp kus sulgude vahel on loendis olevate elementide andmetüüp
+        //                 samamoodi nagu massiive saab loendeid olla ükskõik mis lihtandmetüüpi , komposiitandmetüüpi
+        //                 (ka teine list)
+        //                 erinevalt masiivist aga ei pea ütlema kui pikk loend ise on . loendi eripära on see et teda
+        //                 saab dünaamiliselt oma pikkuselt muuta ST et elemente saab eemaldada selle elemendi asukohaga.
+        //                 masiiv on konstantse pikkusega ehk muutumatu ja ei saa ära võtta elemente selle kohaga.
+        //                 listi üksikelemendi andmetüüp asub noolsulgude vahel "<>"kaitstud sõna "List" järel.
 
-        // ----------------------------------------------------------------------------------------------------
-        /*
-        //string string = "abc"; //very bad 
-        string sõne = "abc"; //good
 
+        // Esimene tekitus viis 
 
-        int mingiarv = 4;
+        List<int> arvuloend = new List<int>(); // andmetüübi kirjeldus lList<int> näite et tegu on andmetüübiga listis noolsulgude
+                                               // vahel on andmete tüüp . antud juhul on need täisarvud.muutuja end animeks kus 
+                                               // muutujaid hoitakse on arvuloaend sellesse loendisse omistatakse kaitstud
+                                               // sõna new abil uus pikkuseta tühi loend täisarvudega.
 
-        mingiarv = mingiarv + 15;   //
 
-        mingiarv = mingiarv - 15;   //
+        //Teine tekitus viis
 
-        mingiarv = mingiarv * 15;   //
+        List<int> arvuloend2 = new List<int>() {1,2,3};  // andmetüübi kirjeldus lList<int> näite et tegu on andmetüübiga
+                                                         // listis noolsulgude
+                                                         // vahel on andmete tüüp . antud juhul on need täisarvud.muutuja
+                                                         // enda nimeks kus muutujaid hoitakse on arvuloaend2 , Sellesse
+                                                         // omistatakse uus ja tühi loend täisarvudega kuid pärast andmetüübi
+                                                         // taga olevaid sulge anname loogelistesulgude vahel talle kaasa koha
+                                                         // ka elemendid. antud juhul on tegu täisarvudega 1 , 2 ja 3 . enam
+                                                         // ei ole tegu pikkusetta ega tühja loendiga vaid sarnaselt masiivile
+                                                         // tekib selle loendi pikkus põhinedes sellel mitu elementi
+                                                         // kaasa on antud.
 
-        mingiarv = mingiarv / 15;   //
+        //kolmas tekitus viis 
 
+        List<int> arvuloend3 = new List<int>(3);// andmetüübi kirjeldus lList<int> näite et tegu on andmetüübiga listis
+                                                // noolsulgude
+                                                // vahel on andmete tüüp . antud juhul on need täisarvud.muutuja
+                                                // enda nimeks kus muutujaid hoitakse on arvuloaend3.
+                                                // omistatakse uus ja tühi loend täisarvudega kuid loend omab kolem tühja elementi
+                                                // arve ega väärtusi nende elementide sees veel ei ole .elementide arv
+                                                // sätestatakse peale noolsuge olevate tavaliste sulgude vahele 
 
-        mingiarv += 15;   //
 
-        mingiarv -= 15;   //
+    //                 ------ K A I T S T U D  S Õ N A D -----
 
-        mingiarv *= 15;   //
+    //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
+    //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
 
-        mingiarv /= 15;   //
+    //    abstract    as           base       bool       break       byte        case
+    //    catch       char         checked    class      count       continue    decimal
+    //    default     delegate     do         double     else        enum        event
+    //    explicit    extern       false      finally    fixed       float       for
+    //    foreach     goto         if         implicit   in          int         interface
+    //    internal    is           lock       long       namespace   new         null
+    //    object      operator     out        override   params      private     protected
+    //    public      readonly     ref        return     sbyte       sealed      short 
+    //    sizeof      stackalloc   static     string     struck      switch      this
+    //    throw       true         try        typeof     uint        ulong       unchecked 
+    //    unsafe      ushort       using      virtual    void        volatile    while
 
-          O M I S T U S    O P E R A A T O R I D 
+    // ----------------------------------------------------------------------------------------------------
+    /*
+    //string string = "abc"; //very bad 
+    string sõne = "abc"; //good
 
 
-        // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
-        int muutuuja = 1;
-        // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
-        muutuuja += 2;
-        // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja -= 1;
-        // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja *= 4;
-        // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
-        muutuuja /= 4;
-        // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
-        muutuuja %= 2;
-        // ++ e. kiirtehe mis liidab ainult 1 juurde
-        muutuuja++;
-        // -- e kiirtehe mis lahutab ainult 1 maha
-        muutuuja--;
+    int mingiarv = 4;
 
+    mingiarv = mingiarv + 15;   //
 
-         V Õ R D L U S    O P E R A A T O R I D 
+    mingiarv = mingiarv - 15;   //
 
-        // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
+    mingiarv = mingiarv * 15;   //
 
-        // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
+    mingiarv = mingiarv / 15;   //
 
-        // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
 
-        // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
+    mingiarv += 15;   //
 
-        // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
+    mingiarv -= 15;   //
 
-        // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
+    mingiarv *= 15;   //
 
+    mingiarv /= 15;   //
 
-        L O O G I L I S E D      O P E R A A T O R I D
+      O M I S T U S    O P E R A A T O R I D 
 
-        // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
-        (true + true = true)
-        // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
 
-        // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
+    // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
+    int muutuuja = 1;
+    // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
+    muutuuja += 2;
+    // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja -= 1;
+    // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja *= 4;
+    // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
+    muutuuja /= 4;
+    // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
+    muutuuja %= 2;
+    // ++ e. kiirtehe mis liidab ainult 1 juurde
+    muutuuja++;
+    // -- e kiirtehe mis lahutab ainult 1 maha
+    muutuuja--;
 
-                         --      T I N G I M U S L A U S E      --
 
-         //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
+     V Õ R D L U S    O P E R A A T O R I D 
 
-        if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
+    // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
 
-        else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
+    // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
 
-        else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
+    // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
 
-        //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
-        */
+    // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
 
-        /*
-        int option = 3;
+    // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
 
-        switch(option) {  //Switch on kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
-                          //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
-                          //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
+    // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
 
-            case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
-                          //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
-                          //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
 
-                Console.WriteLine("nope");
-                break;
-                case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
+    L O O G I L I S E D      O P E R A A T O R I D
 
-                break;
+    // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
+    (true + true = true)
+    // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
 
-                case 3:
-                Console.WriteLine(option);  // antud juhtul kuvatakse muutujas option asuv väärtus välja 
-                break;
+    // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
 
-            default:  //default juhtum täitub siis kui ülejäänud juhtumid ei kata switchi lülitusvalikus olevas muutujas asuvat väärtust
-                      // toimib nag else , kuid erinevalt if elsei else struktuuist , võib default olla ka alguses.
-                Console.WriteLine("best wishes stranger");
-                break;    // Kui antud juhtumi tegevus on tehtud väljutakse mitte ainult juhtumist vaid ka kogu käesolevast switchcase tingimustikust
-                          // peale breaki on lauselõpu märk.
-        }
-        */
+                     --      T I N G I M U S L A U S E      --
 
-        /*
+     //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
 
+    if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
 
+    else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
 
-         //   - S Ü N T A K S -- */
-
+    else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
 
-        /*  Console.WriteLine("Ommik");
-          string vastus = Console.ReadLine();
-          Console.WriteLine(":3");
+    //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
+    */
 
+    /*
+    int option = 3;
 
-          // 1      2   3   4  5
-          string näidis = "def";*/ //1 muutuja kirjutatakse alustades andmetüübist , ilma andmetüübita ei saa muutujat deklareerida. 
-                                   //2 seejärele kirjutatkse muutuja nimi mis kirjeldab andmeid ja nende nende andme eesmärki
-                                   //  soovitatakse kasutada muutujate nimetamisele cameCase stiili. esimene sõna on väikse tähega ja ülejäänud on suuretähega algavad.
-                                   //3 omistusoperaator mis annab andmed sisse.
-                                   //4 andmed mida omistatakse.
-                                   //5 lauselõpumärk.
+    switch(option) {  //Switch on kaitstud sõna alternatiivselt tingimus kontrolli jaoks mida saab alternativvselt if else i asemel kasutada , Sulgude vahele käib 
+                      //muutuja nimi , mille põhjal tingimuslik ümberlülitus toimub . Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja
+                      //või omakorda sulgude vahel muu tingimuse avaldis.pärast lülitusvalikut tuleb koodiplokk.
 
-        // ;           - iga koodi lause koodiploki sees lõppeb lauselõpu märgiga.
-        // Console     - Console on C# käsurea addreseerimise pakett millega saab erinevaid operatsioone teha.
-        // .           - kasutatakse addresseerimiseks et saada punktile eelnevalt objektist mingisuguse meetod funktsiooni mis kirjutatakse pärast punkti 
-        //               võib mõelda kui kaustas olevat / släshi.
-        // WriteLine   - WriteLine on funktsiooon mida parasjagu kasutatakse . WriteLine kuvab käsureale teksti või kaasatud parameetreid
-        // ()          - sulupaar mis omab funktsiooni tõõks vajaliku infot / parameetreid
-        // {}          - loogelised sulud tähistavad koodi plokki konteineri jaoks.
-        // []          - kantsulud tähistavad masiivi.
-        // ""          - tähistavad sõne andmetüüpi andmeid, andmed ise asuvad jutumärkide vahel.
-        // string      - andmetüüp mis kirjutatakse alati muutuja ette , andmetüüübis endas asuvad ka andmetüübile vajalikud funktsioonid.
-        // "vastus"    - muutuja mille nimi on vastus mis omab string tüüpi andmeid.mis omistatakse sinna sisse omistusoperaatoriga.
-        // ReadLine(); - ReadLine on funktsiooon mida parasjagu kasutatakse . ReadLine loeb käsurealt vaike tüüpi sõne väärtuseid.
-        // //          - tähistab ühearealist kommentaari
-        // /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
-        // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
-        //             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
-
-        /* andmetüübi castimine e. teisendamine.
-
-
-         //Castimine, on arvu teisendamine ühest andmetüübist teise. Castimist on kahte eri liiki , automaatne (implicit) ja automaatne (explicit) , 
-        automaatne castimine toimub siis 
-         // kui teisendatakse väiksemast andmetüübist suuremasse selliselt juhtul programmeerija spetsiifiliselt castima ei pea
-         // manuaalne castimine toimub siis kui toimub castimine väiksemast andmetüüübist suuremasse , sellel juhtul on vaja panna muutuja ette sulupaar kui on soovitav andmetüüp sees.
-
-        //manuaalne castimine
-
-          double minuData1 = 1.23d;            // tekitatakse või onolemas double tüüpi andmed muutujas minuData1 
-         float minuFloat1 = (float)minuData1; // toimub teisendaminne väiksemasse Float andmetüüpi suuremast double andmetüübist
-         long minuLong1 = (long)minuData1;   // toimub teisendaminne väiksemasse long andmetüüpi suuremast float andmetüübist
-         int minuInt1 = (int)minuLong1;     // toimub teisendaminne väiksemasse int andmetüüpi suuremast long andmetüübist
-         char newChar1 = (char)minuInt1;   // toimub teisendaminne väiksemasse char andmetüüpi suuremast int andmetüübist
-
-        //automaatne castimine
-
-         int backtoint = newChar1;           //toimub automaat teisendus väiksemast char andmetüübist suuremasse int andmetüüpi
-         long backtolong = backtoint;        //toimub automaat teisendus väiksemast int andmetüübist suuremasse long andmetüüpi
-         float backtofloat = backtolong;     //toimub automaat teisendus väiksemast long andmetüübist suuremasse float andmetüüpi
-         double backtodouble = backtofloat;  //toimub automaat teisendus väiksemast float andmetüübist suuremasse double andmetüüpi
-
-        // suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
-
-        //       ------------  P A R S I M I N E  --------------
-
-        // parsimine on tekstist katse teisendada mingit tüüpi arvandmeid . teisendus toimub küsides mingist andmetüübist  talle sisse ehitatud meetodi Parse() abil mingist sõnest arvandmeid
-
-        string seenontekst = "1";                    // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust
-        int teisendatud = int.Parse(seenontekst);   // muutuja "teisendatud" kuhu omistatakse Parse() meeetodi abil sõnest arvväärtus 
-        Console.WriteLine(teisendatud);            // teisenduse väljakuvamine.
-
-
-        // Parsimisel on ka alternatiivne meetod "TryParse()" tryparse üritab teisendada ning kui teisendus kukub läbi, tagastatakse algne väärtus/false
-
-        string seenontekst2 = "2";                     // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust     
-        int teisendatud2 = int.Parse(seenontekst2);    // muutuja "teisendatud2" omab potensiaalset muutujat 
-        Console.WriteLine(teisendatud2);               // teisenduse väljakuvamine
-
-        //converteerimine on mingisuguse andme otsene teisendus ükskõik mis teise andmetüüpi. Selle jaoks on olemas moodul "Convert" 
-        //Convert moodulis on sarnaselt arvandmetüüpides olevale ToString() meetodile ka muude andmetüüpide vastavad konventermismeetodid.
-
-        var mingiInfo = "6.7";                                    //teisendamist vaja info
-        string mingiInfoTekst Convert.ToString(mingiInfo);        // convert teisendab mingist tundmatust andmetüübist ifo strngiks /sõneks
-        char mingiInfoChar; Convert.ToChar(mingiInfo);            // teisendus täheks 
-        int mingiInfoInt; Convert.ToInt32(mingiInfo);             // teisendab int andmetüübiks
-        long mingiInfoLong; Convert.ToInt64(mingiInfo);           // teisendab Long andmetüübiks 
-        decimal mingiInfoDecimal; Convert.ToDecimal(mingiInfo);   // teisendab decimaliks
-        double mingiInfoDouble; Convert.ToDouble(mingiInfo);      // teisendab double andmetüübiks
-        byte mingiInfoByte; Convert.ToByte(mingiInfo);            // teisendab baidiks
-        bool mingiInfoBool; Convert.ToBoolean(mingiInfo);         // teisendab Boolean andmetüübiks
-
-        //  ---------------------- T S Ü K L I D ------------------
-        /*
-        // truslid on programmeerimises viis kuidas automatiseerida korduv tegevus ära , see aitab hoida andmmahtu kokku . programeerija sama 
-        //koodi mitu korda kirjutamisest, ning väldib ka korduvatest tekkinud vigu. C# on neli peamis tsükli liiki -
-
-        // tsüklitel on 3 peamist komponenti - käsklus ise , tsükli tingimus ja tehtav kood
-        // do-while
-        // while
-        // for 
-        // foreach
-        */
-        // ------------------   D O   W H I L E    -------------------
-        /*
-        //1.do-while   // erineb kõigist teistest sellega et tingimuste kontroll toimub pärast esimese tegevuse ringi kõikide teistes tsüklitestoimub
-                       // tingimuste kontroll enne esimest ringi
-
-
-                    int tsüklimuutuja = 0;                  //mingisugune muutuja mis omab tsükli töö tingimusabil kontrollimiseks vajalikku väärtust e. tsüklimuutujat
-                    do                                      // do on kaitstud sõna mis alustab do while tsüklit , sellele järgne tsüklis tehtav                                        // koodiplokk ning mis esimene ring täidetakse ilma tingimuse kontrollita
-        {
-
-                     Console.WriteLine(tsüklimuutuja);      //koodiploki sees olev tegevus, antud juhul kuvatakse tsüklimuutuja arv välja                     
-                    tsüklimuutuja++;                        //ning tsüklimuutujat suurendatakse
-            // ILMA TSÜKLIMUUTUJA kaasmata käib tsükkel lõpmatult
-        }           while  (tsüklimuutuja != 5 );           // while on kaitstud sõna mis do while tsükli lõpetab, pärast seda toimub esimenne tingimuskontroll kus kontrollitakse
-                                                            // tsükli tööse kaasatud olukorda , kui tingimus täitub e. true , täidetakse veel 1 ring ning täidetakse veel 1 ring
-                                                            // ning kontrollitakse tingimust uuesti.antud juhul tsükkel toimib niikaua kuni tsükli muutuja ei ole 5.
-        */
-
-        //        ----------------------   W H I L E    -------------------
-        /*
-        //2.while
-        // "While" tsükkel on kõige tüüpilisemat laadi tsükkel , tal on tingimuse kontroll esimese ringi alguse. kuid tsükkel ei
-        // oma sisse ehitatud tsükkli muutujat , selle peab sätestama programmeerija  
-        string tsüklimuutuja2 = "";
-        while (tsüklimuutuja2 != "0")   // while on kaitstud sõna mis alustab while tsükkli, sellele järgneb sulgude
-                                        // vahel olev tingimuse kontroll , kus kontrollitakse tsüklimuutuja hetke seisu ning kui avaldis
-                                        // tagastab true , tsükkel töötab veel ühe ringi. kui tingimus ei täitu siis ei täiteta
-                                        // ka järgnevat ringi ja tsükli töö katkeb . Antud juhul kontrollitakse et tsükli muutuja ei oleks
-                                        // võrdne sõne muutujaga kus on tähemärk arvu 0 kohta.
-        {
-            Console.WriteLine("esita tekst: ");   // koodiploki "{}" sees olev tegevus , antud juhul küsitakse kasutajalt et sisestada tekst 
-            tsüklimuutuja2 = Console.ReadLine();  // mis seejärel omistatakse tsüklimuutuja sisse.
-        }
-        */
-
-
-        //            --------------------- F O R -------------------- 
-        /*
-        //3.for 
-        int[] arvuMasiiv = new int[5];      // muutuja kus on andmed , mida tsükkel läbi töötleb (array)
-         // for tsükkel võrreldes eelnevatega omab endas tsükli töö edasi viimiseks tsükli  enda sätestuste sees peale tingimus kontrolli 
-         // ka iseenda tsüklimuutujat, ning selle iseenda tsüklimuutuja muutmist . 
-        for(int k = 0; k < arvuMasiiv.Length; k++)    // kaitstud sõna for alustab for tsükkli, pärast mida on sulud mille vahel on
-                                                      // kõik tsükli töö jaoks vajalik , esimene parameeter tekitab tsükli töö jaoks
-                                                      // kohalik muutuja - tsükli muutuja ei eksisteeri väljaspool tsükli konteksti, 
-                                                      // selle sätestuses on int k kohalik muutuja "int k = 0;" 
-                                                      // teine parameeter on tsükli töö kontrollimiseks vajalik tingimuse kontroll
-                                                      // samamoodi nagu while või do while juures tingimuse täitumisel tsükkel teeb ühe ringi
-                                                      // miite täitumisel tsükkel katkeb. Kolmas parameeter on tsüklimuutuja muutmine selles
-                                                      // näiteks kiirtehtega ++ inkrementeeritakse , on võimalik ka muud funktsiooni kasutada
-                                                      // iga for tsükkli parameeter on tegelikus oma täielik koodilause seega
-                                                      // eraldatakse sulgude vahel lauselõpu märgiga väljaarvatud viimane , viimase
-                                                      // lõpetab sulg ")"
-                                                      // sulgudele järgneb koodi plokk {} . 
-        {
-            Console.WriteLine("sisesta "k". arv");   // tegevus koodiploki sees us küsitakse kasutades tsüklimuutujat , kasutajalt järgmist/
-                                                     // mingindat arvu.
-            arvuMasiiv[k] = int.Parse(Console.ReadLine()); // kasutades tsüklimuutujat täidetakse massiiv 
-        }
-
-        */
-        //        -------------------- F O R E A C H ---------------------
-        /*
-        //4.foreach  tsükkel võrreldes for tsükkliga ei oma mitut parameetrit aga kindalat funktsiooni kontrollivust.
-        //koos iga elemendi jaoks tekitatava muutujaga for each tsükkel käib nii kaua kuni elemendid pole otsa saanud
-        //foreach tsükkli tööd saab kontrollida ainult läbiselle töödeldava kollektsiooni enda ST seda et tsükli muutuja on 
-        //kollektsiooni elementide arv , selle tsükli joks ei tekitata eraldi muutujat.
-
-        List<string> sõnad = new List<string>() { "maasikas", "muulukas", "mustikas" };
-
-        foreach (var üksSõna in sõnad)   //kaitstud sõna "foreach" alustab foreach tsükkli pärast mida on sulud mille vahel on 
-                                         //tsükkli töö kontrolliv tingimus selle tingimuse sees tekitatakse ajutine muutuja
-                                         //andmetüübiga var töödeldava elemendi üksikelemendi jaoks. Tingimuse keskel on järgmine 
-                                         //kaitstud sõna "in" mis kontrollib et tsükkel töötals selle elemendi jaoks. Peale ühte 
-                                         //ringi vaadatakse kas element on järgi kui on omistatakse nüüd muutujasse järgmine element ning tsükkel käib veel ühe ringi 
-                                         // kui aga elemente veel ei ole tsükkel lõppeb . tsükkli tööd saaab kontrollida näiteks
-                                         //kontrollitava kollektsiooni suurendamisega . tsükklil ei ole tsükli muutujat kuna 
-                                         //tsükkel töötab kollektsiooni järgi. peale sulge on koodiplokk kus tehakse mingi tegevus
-        {
-            Console.WriteLine(üksSõna);  //antud juhul kuvatakse element välja
-
-        }
-        //NB! tsükkli töö ei pea olema ültse seotud kollektsiooniga , kollektsiooni
-        //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
-        */
-
-
-
-        //-------------------  T E O O R I A   L Õ P P  ------------------
-        
+        case 1:       // koodiploki sees on erinevad juhtumid ja erinevad vasted , väärtuste korral mis võivad olla lülitusvalikus olema muutja sees 
+                      //iga juhtum /vaste kirjutatakse kaitstud sõnada "Case" ning , ning väärtus selle järel millele see juhtum vastab.antud juhtul.
+                      //see juhtum toimib, kui muutujas option on täisarv 1, peale võimallik väärtust on koolon väljendades juhtumi täitumisel tehtavat koodiplokki.
+
+            Console.WriteLine("nope");
+            break;
+            case 2:  // juhtume võib olla mitmeid antud juhtul on siin näidises 3+1 , kolm kindlat väärtust ja üks vaike väärtus (ehk default)
+
+            break;
+
+            case 3:
+            Console.WriteLine(option);  // antud juhtul kuvatakse muutujas option asuv väärtus välja 
+            break;
+
+        default:  //default juhtum täitub siis kui ülejäänud juhtumid ei kata switchi lülitusvalikus olevas muutujas asuvat väärtust
+                  // toimib nag else , kuid erinevalt if elsei else struktuuist , võib default olla ka alguses.
+            Console.WriteLine("best wishes stranger");
+            break;    // Kui antud juhtumi tegevus on tehtud väljutakse mitte ainult juhtumist vaid ka kogu käesolevast switchcase tingimustikust
+                      // peale breaki on lauselõpu märk.
+    }
+    */
+
+    /*
+
+
+
+     //   - S Ü N T A K S -- */
+
+
+    /*  Console.WriteLine("Ommik");
+      string vastus = Console.ReadLine();
+      Console.WriteLine(":3");
+
+
+      // 1      2   3   4  5
+      string näidis = "def";*/ //1 muutuja kirjutatakse alustades andmetüübist , ilma andmetüübita ei saa muutujat deklareerida. 
+                               //2 seejärele kirjutatkse muutuja nimi mis kirjeldab andmeid ja nende nende andme eesmärki
+                               //  soovitatakse kasutada muutujate nimetamisele cameCase stiili. esimene sõna on väikse tähega ja ülejäänud on suuretähega algavad.
+                               //3 omistusoperaator mis annab andmed sisse.
+                               //4 andmed mida omistatakse.
+                               //5 lauselõpumärk.
+
+    // ;           - iga koodi lause koodiploki sees lõppeb lauselõpu märgiga.
+    // Console     - Console on C# käsurea addreseerimise pakett millega saab erinevaid operatsioone teha.
+    // .           - kasutatakse addresseerimiseks et saada punktile eelnevalt objektist mingisuguse meetod funktsiooni mis kirjutatakse pärast punkti 
+    //               võib mõelda kui kaustas olevat / släshi.
+    // WriteLine   - WriteLine on funktsiooon mida parasjagu kasutatakse . WriteLine kuvab käsureale teksti või kaasatud parameetreid
+    // ()          - sulupaar mis omab funktsiooni tõõks vajaliku infot / parameetreid
+    // {}          - loogelised sulud tähistavad koodi plokki konteineri jaoks.
+    // []          - kantsulud tähistavad masiivi.
+    // ""          - tähistavad sõne andmetüüpi andmeid, andmed ise asuvad jutumärkide vahel.
+    // string      - andmetüüp mis kirjutatakse alati muutuja ette , andmetüüübis endas asuvad ka andmetüübile vajalikud funktsioonid.
+    // "vastus"    - muutuja mille nimi on vastus mis omab string tüüpi andmeid.mis omistatakse sinna sisse omistusoperaatoriga.
+    // ReadLine(); - ReadLine on funktsiooon mida parasjagu kasutatakse . ReadLine loeb käsurealt vaike tüüpi sõne väärtuseid.
+    // //          - tähistab ühearealist kommentaari
+    // /* */       - tähistab plokk kommentaari , kõik tärnide vahel on välja kommenteeritud
+    // ///         - funktsiooni summery kommentaar , kirjeldab meetodit mille tekst kuvatakse välja tool tip-ina
+    //             - taane - aitab arendajal aru saada kus kohas millise koodiploki sees kood parasjagu asub , ning aitab järgepidada.
+
+    /* andmetüübi castimine e. teisendamine.
+
+
+     //Castimine, on arvu teisendamine ühest andmetüübist teise. Castimist on kahte eri liiki , automaatne (implicit) ja automaatne (explicit) , 
+    automaatne castimine toimub siis 
+     // kui teisendatakse väiksemast andmetüübist suuremasse selliselt juhtul programmeerija spetsiifiliselt castima ei pea
+     // manuaalne castimine toimub siis kui toimub castimine väiksemast andmetüüübist suuremasse , sellel juhtul on vaja panna muutuja ette sulupaar kui on soovitav andmetüüp sees.
+
+    //manuaalne castimine
+
+      double minuData1 = 1.23d;            // tekitatakse või onolemas double tüüpi andmed muutujas minuData1 
+     float minuFloat1 = (float)minuData1; // toimub teisendaminne väiksemasse Float andmetüüpi suuremast double andmetüübist
+     long minuLong1 = (long)minuData1;   // toimub teisendaminne väiksemasse long andmetüüpi suuremast float andmetüübist
+     int minuInt1 = (int)minuLong1;     // toimub teisendaminne väiksemasse int andmetüüpi suuremast long andmetüübist
+     char newChar1 = (char)minuInt1;   // toimub teisendaminne väiksemasse char andmetüüpi suuremast int andmetüübist
+
+    //automaatne castimine
+
+     int backtoint = newChar1;           //toimub automaat teisendus väiksemast char andmetüübist suuremasse int andmetüüpi
+     long backtolong = backtoint;        //toimub automaat teisendus väiksemast int andmetüübist suuremasse long andmetüüpi
+     float backtofloat = backtolong;     //toimub automaat teisendus väiksemast long andmetüübist suuremasse float andmetüüpi
+     double backtodouble = backtofloat;  //toimub automaat teisendus väiksemast float andmetüübist suuremasse double andmetüüpi
+
+    // suuremast andmetüübist castimisega väiksemassa andmetüüpi on andme resulutsioonil kadu ja andmeid ei saa tagasi kui castida tagasi suuremasse andmetüüpi.
+
+    //       ------------  P A R S I M I N E  --------------
+
+    // parsimine on tekstist katse teisendada mingit tüüpi arvandmeid . teisendus toimub küsides mingist andmetüübist  talle sisse ehitatud meetodi Parse() abil mingist sõnest arvandmeid
+
+    string seenontekst = "1";                    // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust
+    int teisendatud = int.Parse(seenontekst);   // muutuja "teisendatud" kuhu omistatakse Parse() meeetodi abil sõnest arvväärtus 
+    Console.WriteLine(teisendatud);            // teisenduse väljakuvamine.
+
+
+    // Parsimisel on ka alternatiivne meetod "TryParse()" tryparse üritab teisendada ning kui teisendus kukub läbi, tagastatakse algne väärtus/false
+
+    string seenontekst2 = "2";                     // mingisugune sõne mis omab endas mingit potensiaalset arvväärtust     
+    int teisendatud2 = int.Parse(seenontekst2);    // muutuja "teisendatud2" omab potensiaalset muutujat 
+    Console.WriteLine(teisendatud2);               // teisenduse väljakuvamine
+
+    //converteerimine on mingisuguse andme otsene teisendus ükskõik mis teise andmetüüpi. Selle jaoks on olemas moodul "Convert" 
+    //Convert moodulis on sarnaselt arvandmetüüpides olevale ToString() meetodile ka muude andmetüüpide vastavad konventermismeetodid.
+
+    var mingiInfo = "6.7";                                    //teisendamist vaja info
+    string mingiInfoTekst Convert.ToString(mingiInfo);        // convert teisendab mingist tundmatust andmetüübist ifo strngiks /sõneks
+    char mingiInfoChar; Convert.ToChar(mingiInfo);            // teisendus täheks 
+    int mingiInfoInt; Convert.ToInt32(mingiInfo);             // teisendab int andmetüübiks
+    long mingiInfoLong; Convert.ToInt64(mingiInfo);           // teisendab Long andmetüübiks 
+    decimal mingiInfoDecimal; Convert.ToDecimal(mingiInfo);   // teisendab decimaliks
+    double mingiInfoDouble; Convert.ToDouble(mingiInfo);      // teisendab double andmetüübiks
+    byte mingiInfoByte; Convert.ToByte(mingiInfo);            // teisendab baidiks
+    bool mingiInfoBool; Convert.ToBoolean(mingiInfo);         // teisendab Boolean andmetüübiks
+
+    //  ---------------------- T S Ü K L I D ------------------
+    /*
+    // truslid on programmeerimises viis kuidas automatiseerida korduv tegevus ära , see aitab hoida andmmahtu kokku . programeerija sama 
+    //koodi mitu korda kirjutamisest, ning väldib ka korduvatest tekkinud vigu. C# on neli peamis tsükli liiki -
+
+    // tsüklitel on 3 peamist komponenti - käsklus ise , tsükli tingimus ja tehtav kood
+    // do-while
+    // while
+    // for 
+    // foreach
+    */
+    // ------------------   D O   W H I L E    -------------------
+    /*
+    //1.do-while   // erineb kõigist teistest sellega et tingimuste kontroll toimub pärast esimese tegevuse ringi kõikide teistes tsüklitestoimub
+                   // tingimuste kontroll enne esimest ringi
+
+
+                int tsüklimuutuja = 0;                  //mingisugune muutuja mis omab tsükli töö tingimusabil kontrollimiseks vajalikku väärtust e. tsüklimuutujat
+                do                                      // do on kaitstud sõna mis alustab do while tsüklit , sellele järgne tsüklis tehtav                                        // koodiplokk ning mis esimene ring täidetakse ilma tingimuse kontrollita
+    {
+
+                 Console.WriteLine(tsüklimuutuja);      //koodiploki sees olev tegevus, antud juhul kuvatakse tsüklimuutuja arv välja                     
+                tsüklimuutuja++;                        //ning tsüklimuutujat suurendatakse
+        // ILMA TSÜKLIMUUTUJA kaasmata käib tsükkel lõpmatult
+    }           while  (tsüklimuutuja != 5 );           // while on kaitstud sõna mis do while tsükli lõpetab, pärast seda toimub esimenne tingimuskontroll kus kontrollitakse
+                                                        // tsükli tööse kaasatud olukorda , kui tingimus täitub e. true , täidetakse veel 1 ring ning täidetakse veel 1 ring
+                                                        // ning kontrollitakse tingimust uuesti.antud juhul tsükkel toimib niikaua kuni tsükli muutuja ei ole 5.
+    */
+
+    //        ----------------------   W H I L E    -------------------
+    /*
+    //2.while
+    // "While" tsükkel on kõige tüüpilisemat laadi tsükkel , tal on tingimuse kontroll esimese ringi alguse. kuid tsükkel ei
+    // oma sisse ehitatud tsükkli muutujat , selle peab sätestama programmeerija  
+    string tsüklimuutuja2 = "";
+    while (tsüklimuutuja2 != "0")   // while on kaitstud sõna mis alustab while tsükkli, sellele järgneb sulgude
+                                    // vahel olev tingimuse kontroll , kus kontrollitakse tsüklimuutuja hetke seisu ning kui avaldis
+                                    // tagastab true , tsükkel töötab veel ühe ringi. kui tingimus ei täitu siis ei täiteta
+                                    // ka järgnevat ringi ja tsükli töö katkeb . Antud juhul kontrollitakse et tsükli muutuja ei oleks
+                                    // võrdne sõne muutujaga kus on tähemärk arvu 0 kohta.
+    {
+        Console.WriteLine("esita tekst: ");   // koodiploki "{}" sees olev tegevus , antud juhul küsitakse kasutajalt et sisestada tekst 
+        tsüklimuutuja2 = Console.ReadLine();  // mis seejärel omistatakse tsüklimuutuja sisse.
+    }
+    */
+
+
+    //            --------------------- F O R -------------------- 
+    /*
+    //3.for 
+    int[] arvuMasiiv = new int[5];      // muutuja kus on andmed , mida tsükkel läbi töötleb (array)
+     // for tsükkel võrreldes eelnevatega omab endas tsükli töö edasi viimiseks tsükli  enda sätestuste sees peale tingimus kontrolli 
+     // ka iseenda tsüklimuutujat, ning selle iseenda tsüklimuutuja muutmist . 
+    for(int k = 0; k < arvuMasiiv.Length; k++)    // kaitstud sõna for alustab for tsükkli, pärast mida on sulud mille vahel on
+                                                  // kõik tsükli töö jaoks vajalik , esimene parameeter tekitab tsükli töö jaoks
+                                                  // kohalik muutuja - tsükli muutuja ei eksisteeri väljaspool tsükli konteksti, 
+                                                  // selle sätestuses on int k kohalik muutuja "int k = 0;" 
+                                                  // teine parameeter on tsükli töö kontrollimiseks vajalik tingimuse kontroll
+                                                  // samamoodi nagu while või do while juures tingimuse täitumisel tsükkel teeb ühe ringi
+                                                  // miite täitumisel tsükkel katkeb. Kolmas parameeter on tsüklimuutuja muutmine selles
+                                                  // näiteks kiirtehtega ++ inkrementeeritakse , on võimalik ka muud funktsiooni kasutada
+                                                  // iga for tsükkli parameeter on tegelikus oma täielik koodilause seega
+                                                  // eraldatakse sulgude vahel lauselõpu märgiga väljaarvatud viimane , viimase
+                                                  // lõpetab sulg ")"
+                                                  // sulgudele järgneb koodi plokk {} . 
+    {
+        Console.WriteLine("sisesta "k". arv");   // tegevus koodiploki sees us küsitakse kasutades tsüklimuutujat , kasutajalt järgmist/
+                                                 // mingindat arvu.
+        arvuMasiiv[k] = int.Parse(Console.ReadLine()); // kasutades tsüklimuutujat täidetakse massiiv 
+    }
+
+    */
+    //        -------------------- F O R E A C H ---------------------
+    /*
+    //4.foreach  tsükkel võrreldes for tsükkliga ei oma mitut parameetrit aga kindalat funktsiooni kontrollivust.
+    //koos iga elemendi jaoks tekitatava muutujaga for each tsükkel käib nii kaua kuni elemendid pole otsa saanud
+    //foreach tsükkli tööd saab kontrollida ainult läbiselle töödeldava kollektsiooni enda ST seda et tsükli muutuja on 
+    //kollektsiooni elementide arv , selle tsükli joks ei tekitata eraldi muutujat.
+
+    List<string> sõnad = new List<string>() { "maasikas", "muulukas", "mustikas" };
+
+    foreach (var üksSõna in sõnad)   //kaitstud sõna "foreach" alustab foreach tsükkli pärast mida on sulud mille vahel on 
+                                     //tsükkli töö kontrolliv tingimus selle tingimuse sees tekitatakse ajutine muutuja
+                                     //andmetüübiga var töödeldava elemendi üksikelemendi jaoks. Tingimuse keskel on järgmine 
+                                     //kaitstud sõna "in" mis kontrollib et tsükkel töötals selle elemendi jaoks. Peale ühte 
+                                     //ringi vaadatakse kas element on järgi kui on omistatakse nüüd muutujasse järgmine element ning tsükkel käib veel ühe ringi 
+                                     // kui aga elemente veel ei ole tsükkel lõppeb . tsükkli tööd saaab kontrollida näiteks
+                                     //kontrollitava kollektsiooni suurendamisega . tsükklil ei ole tsükli muutujat kuna 
+                                     //tsükkel töötab kollektsiooni järgi. peale sulge on koodiplokk kus tehakse mingi tegevus
+    {
+        Console.WriteLine(üksSõna);  //antud juhul kuvatakse element välja
+
+    }
+    //NB! tsükkli töö ei pea olema ültse seotud kollektsiooniga , kollektsiooni
+    //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
+    */
+
+
+
+    //-------------------  T E O O R I A   L Õ P P  ------------------
+
     ALGUS:
         Console.Clear();
 
