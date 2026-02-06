@@ -95,6 +95,11 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                                                 // arve ega väärtusi nende elementide sees veel ei ole .elementide arv
                                                 // sätestatakse peale noolsuge olevate tavaliste sulgude vahele 
 
+        //
+        List <bool> näidis2 = new List<bool>(); // 6 - kaitstud sõna new kasutatakse  siis kui tahetatakse instanseerida uute
+                                                //     muutujasse väärtust mille andmetüüp on komplektsne ja vajab konsturuktori
+                                                //     väljakutset . komplektsetel andmetüüpidel on tihti vaja sisemiselt
+                                                //     ülesseehitada ennast teiste andmetüüpide põhjal
 
     //                 ------ K A I T S T U D  S Õ N A D -----
 
