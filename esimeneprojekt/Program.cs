@@ -342,8 +342,29 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
         */
         //        -------------------- F O R E A C H ---------------------
+        /*
+        //4.foreach  tsükkel võrreldes for tsükkliga ei oma mitut parameetrit aga kindalat funktsiooni kontrollivust.
+        //koos iga elemendi jaoks tekitatava muutujaga for each tsükkel käib nii kaua kuni elemendid pole otsa saanud
+        //foreach tsükkli tööd saab kontrollida ainult läbiselle töödeldava kollektsiooni enda ST seda et tsükli muutuja on 
+        //kollektsiooni elementide arv , selle tsükli joks ei tekitata eraldi muutujat.
 
-        //4.foreach
+        List<string> sõnad = new List<string>() { "maasikas", "muulukas", "mustikas" };
+
+        foreach (var üksSõna in sõnad)   //kaitstud sõna "foreach" alustab foreach tsükkli pärast mida on sulud mille vahel on 
+                                         //tsükkli töö kontrolliv tingimus selle tingimuse sees tekitatakse ajutine muutuja
+                                         //andmetüübiga var töödeldava elemendi üksikelemendi jaoks. Tingimuse keskel on järgmine 
+                                         //kaitstud sõna "in" mis kontrollib et tsükkel töötals selle elemendi jaoks. Peale ühte 
+                                         //ringi vaadatakse kas element on järgi kui on omistatakse nüüd muutujasse järgmine element ning tsükkel käib veel ühe ringi 
+                                         // kui aga elemente veel ei ole tsükkel lõppeb . tsükkli tööd saaab kontrollida näiteks
+                                         //kontrollitava kollektsiooni suurendamisega . tsükklil ei ole tsükli muutujat kuna 
+                                         //tsükkel töötab kollektsiooni järgi. peale sulge on koodiplokk kus tehakse mingi tegevus
+        {
+            Console.WriteLine(üksSõna);  //antud juhul kuvatakse element välja
+
+        }
+        //NB! tsükkli töö ei pea olema ültse seotud kollektsiooniga , kollektsiooni
+        //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
+        */
 
 
 
@@ -361,7 +382,8 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         Console.WriteLine("6.Näiteprogramm 6");
         Console.WriteLine("7.Näiteprogramm 7");
         Console.WriteLine("8.Näiteprogramm 8");
-        Console.WriteLine("9.Näiteprogramm 9");
+        Console.WriteLine("9.Näiteprogramm 9");        
+        Console.WriteLine("10.Näiteprogramm 10");
         Console.WriteLine("exit.Sulge programm");
 
 
@@ -847,6 +869,22 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 goto ALGUS;
                 break;
 
+            case "10":
+                Console.Clear();
+                //////////////////////
+                
+
+                //kood siia
+
+
+                ///////////////////////
+                Thread.Sleep(3000);
+                Console.WriteLine("vajauta enter et minna tagai avalehele");
+                Console.ReadLine();
+                goto ALGUS;
+                break;
+
+
             case "exit":
                 Console.Clear();
                 Console.WriteLine("Programm sulgeb mõne sekundi pärast");
@@ -855,19 +893,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 break;
 
                 
-                 //1. 
 
-                string Nimi = "";
-                Console.WriteLine("Mis on sinu nimi ?");
-                Nimi = Console.ReadLine();
-                if (Nimi != "Nipitiri")
-                {
-                    Console.WriteLine("Sa ei ole nipitiri, ootan vaid teda :c");
-                }
-
-
-
-                //2.
 
 
 
