@@ -922,15 +922,17 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
             case "10":
 
                 Console.Clear();
-                //////////////////////    -------  PLEASE FIX ME LATER  -------- 
+                //////////////////////    -------  PLEASE FIX ME LATER fr  -------- 
                 
+
+                //andmed mida soovitakse graafikus näidata
                 List<float> graphData = new List<float>()
                 {
-                    3.6F ,
-                    0 ,
+                    -3.6F ,  // negatiivne
+                    0 ,      // null
                     4.5F ,
                     23.8F ,
-                    106F ,
+                    106F ,   // max value
                     42.2F ,
                     0 ,
                     -5.2F ,
@@ -939,33 +941,37 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                     6F ,
                     
                 };
+                // graafiku joonistamise jaoks vajalikud andmed (keskpunt)
                 int keskpunkt = 45;
                 foreach (var unitOfData in graphData)
                 {
+                    // kuvatav rida hetkel tühi
                     string displayableData = "";
 
+                    // arvutatud andmed keskpunkti suhtes
                     float calculatedData = keskpunkt + unitOfData;
 
+                    //while tsükkli muutuja
                     int o = 0;
 
-                    while (o < 90)
+                    while (o < 90) // tsükkel töötab niikaua kuni i ei ole 90 ega suurem
                     {
                         int sm0 = (int)(45 + unitOfData);
-                        if (0 >= o && o < sm0)
+                        if (0 >= o && o < sm0) //kui "o" on vahemikus 0 aj sm0
+                        {
+                            displayableData += "▓";   //siis joonistame tumade tähemärgi
+                        }
+                        else if (sm0 >= o && o < 45)
                         {
                             displayableData += "▓";
-                        }
-                        else if (sm0 >= o && o > 45)
-                        {
-                            displayableData += "█";
                         }
                         else if (sm0 >= o && o < 90)
                         {
-                            displayableData += "▓";
+                            displayableData += "█";
                         }                        
                         else if (45 >= o && o < sm0)
                         {
-                            displayableData += "▓";
+                            displayableData += "█";
                         } 
                         else if (o >= sm0 && o < 45)
                         {
