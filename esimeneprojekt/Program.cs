@@ -53,7 +53,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         */
 
         //                ----------  L  O  E  N  D  -----------
-
+        /*
         // list<T>    ---> loend on konposiit andmetüüp kus sarnaselt masiiviga saab olla mitmeid samat tüüpi andmeid.
         //                 list kirjutatakse kui oma andmetüüp kus sulgude vahel on loendis olevate elementide andmetüüp
         //                 samamoodi nagu massiive saab loendeid olla ükskõik mis lihtandmetüüpi , komposiitandmetüüpi
@@ -95,12 +95,12 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                                                 // arve ega väärtusi nende elementide sees veel ei ole .elementide arv
                                                 // sätestatakse peale noolsuge olevate tavaliste sulgude vahele 
 
-        //
+        //                     6
         List <bool> näidis2 = new List<bool>(); // 6 - kaitstud sõna new kasutatakse  siis kui tahetatakse instanseerida uute
                                                 //     muutujasse väärtust mille andmetüüp on komplektsne ja vajab konsturuktori
                                                 //     väljakutset . komplektsetel andmetüüpidel on tihti vaja sisemiselt
                                                 //     ülesseehitada ennast teiste andmetüüpide põhjal
-
+     */
     //                 ------ K A I T S T U D  S Õ N A D -----
 
     //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
@@ -920,11 +920,70 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 break;
 
             case "10":
-                Console.Clear();
-                //////////////////////
-                
 
-                //kood siia
+                Console.Clear();
+                //////////////////////    -------  PLEASE FIX ME LATER  -------- 
+                
+                List<float> graphData = new List<float>()
+                {
+                    3.6F ,
+                    0 ,
+                    4.5F ,
+                    23.8F ,
+                    106F ,
+                    42.2F ,
+                    0 ,
+                    -5.2F ,
+                    7F ,
+                    0 ,
+                    6F ,
+                    
+                };
+                int keskpunkt = 45;
+                foreach (var unitOfData in graphData)
+                {
+                    string displayableData = "";
+
+                    float calculatedData = keskpunkt + unitOfData;
+
+                    int o = 0;
+
+                    while (o < 90)
+                    {
+                        int sm0 = (int)(45 + unitOfData);
+                        if (0 >= o && o < sm0)
+                        {
+                            displayableData += "▓";
+                        }
+                        else if (sm0 >= o && o > 45)
+                        {
+                            displayableData += "█";
+                        }
+                        else if (sm0 >= o && o < 90)
+                        {
+                            displayableData += "▓";
+                        }                        
+                        else if (45 >= o && o < sm0)
+                        {
+                            displayableData += "▓";
+                        } 
+                        else if (o >= sm0 && o < 45)
+                        {
+                            displayableData += "▓";
+                        }
+                        else
+                        {
+                            displayableData += "X";
+                        }
+                            o++;
+                    }
+                    
+                    Console.WriteLine(displayableData);
+
+                    //   Console.WriteLine(unitOfData);
+
+
+                }
 
 
                 ///////////////////////
@@ -932,8 +991,9 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                 Console.WriteLine("vajauta enter et minna tagai avalehele");
                 Console.ReadLine();
                 goto ALGUS;
+                
                 break;
-
+                
 
             case "exit":
                 Console.Clear();
