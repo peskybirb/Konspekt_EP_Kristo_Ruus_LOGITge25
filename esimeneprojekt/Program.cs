@@ -12,7 +12,30 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         /* ------------------------Teooria-------------------------------
         //ctrl + k + c/u
 
-                 LIHT ANDMTÜÜBID         
+        ---------  J U H U A R V  ---------
+        */
+        //random klass annab võimaluse programmeerijale genereerida pseudo randdom väärtusi.
+        Random juhuArv = new Random(); // klassinimi random on kasutatav kui andmetüüp, mis ütleb et jäegnevas muutujas nimega
+                                       // juhuArv on uus random tüüpi objekt mis omistatakse sinna "new Random()"käsuga
+                                       // konstruktor ulatab muutuja sisse random tüüpi klassi.random nüüd ise ei ole see
+                                       // juhuarv, ta toimib kui juhuarvude genereetor 
+
+        int miski = juhuArv.Next(-5, 5); // .Next on juhuarvu meetod mis on genereeriv meetod juhuarvu genereerimiseks seda
+                                         // saab kasutada kui mingi väärtusena nng ta tagastab suvalise arvu
+                                         // ilma väärtusetta tagastab andmetüübi maksimaal piirides mingisuguse juhuarvu
+                                         // .Next ühe parameetriga anname talle ühe piiri mille alumine väärtus on 0 vaikimisi
+                                         // kah väärtusega aga kirjeldab ära terve vahemiku võib olla nii negatiivne kui
+                                         // ka positiivne
+        int näidea = juhuArv.Next(7);
+        int näideb = juhuArv.Next(-7, 7);
+        double näidec = juhuArv.NextDouble();  //.NextDouble annab double tüüpi andmetüüpe 
+        float näided = juhuArv.NextSingle();   //.NextSingle annab float tüüpi väärtuseid mis on vahemiks 0.0 - 1.0
+        /*
+        -------------------------------------
+
+
+                --------- LIHT ANDMTÜÜBID --------- 
+        
         string tekst = "mingisugune inimloetav tekst" //tekst
         char täht = 'A'; // üks täht '' vahele
         int arv = 1; //täisarv
@@ -22,7 +45,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         var X = 123; //umbmäärane andmetüübiga ajutine muutuja
         var Y = "ABC";
         bool jahvõiei = false; //kas true või false.
-
+        -----------------------------------------------------------
         // K O M P O S I I T   A N D M E T Ü Ü B I D
 
         //1.          ---------  M  A  S  I  I  V  --------- 
@@ -416,6 +439,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
     //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
     */
 
+    
 
 
     //-------------------  T E O O R I A   L Õ P P  ------------------
@@ -434,6 +458,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         Console.WriteLine("8.Näiteprogramm 8");
         Console.WriteLine("9.Näiteprogramm 9");        
         Console.WriteLine("10.Näiteprogramm 10");
+        Console.WriteLine("11.näiteprogramm 11");
         Console.WriteLine("exit.Sulge programm");
 
 
