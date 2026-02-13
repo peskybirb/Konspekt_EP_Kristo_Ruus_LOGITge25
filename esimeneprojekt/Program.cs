@@ -179,7 +179,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         //kaasaantud väärtuse.
 
 
-        */
+        
         // --------------------------------------
 
 
