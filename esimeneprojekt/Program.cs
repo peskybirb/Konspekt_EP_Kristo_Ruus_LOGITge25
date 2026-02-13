@@ -13,7 +13,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         //ctrl + k + c/u
 
         ---------  J U H U A R V  ---------
-        */
+        
         //random klass annab võimaluse programmeerijale genereerida pseudo randdom väärtusi.
         Random juhuArv = new Random(); // klassinimi random on kasutatav kui andmetüüp, mis ütleb et jäegnevas muutujas nimega
                                        // juhuArv on uus random tüüpi objekt mis omistatakse sinna "new Random()"käsuga
@@ -30,9 +30,9 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         int näideb = juhuArv.Next(-7, 7);
         double näidec = juhuArv.NextDouble();  //.NextDouble annab double tüüpi andmetüüpe 
         float näided = juhuArv.NextSingle();   //.NextSingle annab float tüüpi väärtuseid mis on vahemiks 0.0 - 1.0
-        /*
+        
         -------------------------------------
-
+        
 
                 --------- LIHT ANDMTÜÜBID --------- 
         
@@ -45,6 +45,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         var X = 123; //umbmäärane andmetüübiga ajutine muutuja
         var Y = "ABC";
         bool jahvõiei = false; //kas true või false.
+
         -----------------------------------------------------------
         // K O M P O S I I T   A N D M E T Ü Ü B I D
 
@@ -123,105 +124,174 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                                                 //     muutujasse väärtust mille andmetüüp on komplektsne ja vajab konsturuktori
                                                 //     väljakutset . komplektsetel andmetüüpidel on tihti vaja sisemiselt
                                                 //     ülesseehitada ennast teiste andmetüüpide põhjal
-     */
-    //                 ------ K A I T S T U D  S Õ N A D -----
 
-    //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
-    //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
+        */
+        // ----------  S Õ N A S T I K  --------
+        /*
 
-    //    abstract    as           base       bool       break       byte        case
-    //    catch       char         checked    class      count       continue    decimal
-    //    default     delegate     do         double     else        enum        event
-    //    explicit    extern       false      finally    fixed       float       for
-    //    foreach     goto         if         implicit   in          int         interface
-    //    internal    is           lock       long       namespace   new         null
-    //    object      operator     out        override   params      private     protected
-    //    public      readonly     ref        return     sbyte       sealed      short 
-    //    sizeof      stackalloc   static     string     struck      switch      this
-    //    throw       true         try        typeof     uint        ulong       unchecked 
-    //    unsafe      ushort       using      virtual    void        volatile    while
+        //Dictionary <T, T>     ---> Disctionary on komposiit andmetüüp mis omab võti väärtus paare erinevalt teistest
+        //andmetüüpidest saab dictionary omada kahte erinevat andmetüüpi millest esimene väljendab võtme andmetüüpi ja teine
+        //võtme taga oleva väärtuse andmetüüpi. Need andmetüübid saavad üksteisest erineda või isegi omada klasse andmetüüpidena.
+        //ja ka muid komposiit andmetüüpe. 
 
-    // ----------------------------------------------------------------------------------------------------
+        //esimene tekitus viis
+        Dictionary<int, string> sõnastik = new Dictionary<int, string>();
+        // andmetüübi kirjeldus dictionary näitab et tegu on sõnastikuga ehk loendiga võtiväärtus paaridest , dictionary
+        // noolsulgude vahel asutatakse kaks andmetüüpi , esimene neist on võtme andmetüüp , antud juhul "int". Teine neist
+        // on võtme taga oleva väärtuse  andmetüüp , antud juhul "string". muutuja nimeks on "sõnastik" kuhu
+        // omistataksekäsusõnaga new uus tühi sõnastik vastavate andmetüüpidega. 
+
+
+        Dictionary<int, string> sõnastikkaks = new Dictionary<int, string>() { {1, "Astelpaju" },{2, "muulukas" },{3, "Maasikas" } };
+        // andmetüübi kirjeldus dictionary näitab et tegu on sõnastikuga ehk loendiga võtiväärtus paaridest , dictionary
+        // noolsulgude vahel asutatakse kaks andmetüüpi , esimene neist on võtme andmetüüp , antud juhul "int". Teine neist
+        // on võtme taga oleva väärtuse  andmetüüp , antud juhul "string". muutuja nimeks on "sõnastik" kuhu
+        // omistataksekäsusõnaga new uus tühi sõnastik vastavate andmetüüpidega. uuus sõnastika koos elementidega mis
+        // asuvad sulgude taga loogelistes sulgudes mille andme paarid asuvad omakorda loogeliste sulgude sees. 
+
+
+        //Dictionary<List<int>, string> sõnastikKast = new Dictionary<List<int>, string>();
+
+        // -- SÕNASTIKU TÖÖRIISTAD --
+
+        //     -  .Add  -
+        sõnastik.Add(4, "Tikker");
+        //.add võimaldab olemasolevad sõnastikku lisada elemente selle sõnastik lõppu sulgude sees on andmed
+        // mis vastavad lisatava dictionary andmetüübi sätestusele.
+
+
+        //    -  .Remove   -
+        sõnastik.Remove(2);
+        //.Remove eemaldab kindla võtme järgi sõnastikus oleva elemendi. Sulgude vahel on selle võtme andmetüübile vastav
+        //väärtus . Mitte võtme taga olev väärtus.
+
+        //     -  .Clear  -
+        sõnastik.Clear();
+        // teeb sõnastiku täielikult tühjaks
+
+        //     -  .ConstinasKey  -
+        sõnastik.ContainsKey(2);
+        //.ContainsKey tagastab kas true või false vastavalt sellele kas ta leiab antud sõnastikus parameetrina kaasaantud võtme.
+
+        //     -  .ConsinsValue  -
+        sõnastik.ContainsValue("Tikker");
+        //contains value tagastab kas true või false vastavalt sellele kas ta leiab antud sõnastikus parameetrina
+        //kaasaantud väärtuse.
+
+
+        */
+    // --------------------------------------
+
+    // ----------  T U P L E  -----------
+
+
+
+
+
+
+
+
+
+    // ----------------------------------
     /*
-    //string string = "abc"; //very bad 
-    string sõne = "abc"; //good
+   //                 ------ K A I T S T U D  S Õ N A D -----
+
+   //kaitstu dsõnad on kindlad sõnad mida C# kasutab oma koodistruktuuride tähistamiseks 
+   //et ära hoida näpuga järge ajamist , ning kompilaatori töö lihtsustamisesks , ei saa järgnevaid sõnu muutuja nimetamiseks kasutada
+
+   //    abstract    as           base       bool       break       byte        case
+   //    catch       char         checked    class      count       continue    decimal
+   //    default     delegate     do         double     else        enum        event
+   //    explicit    extern       false      finally    fixed       float       for
+   //    foreach     goto         if         implicit   in          int         interface
+   //    internal    is           lock       long       namespace   new         null
+   //    object      operator     out        override   params      private     protected
+   //    public      readonly     ref        return     sbyte       sealed      short 
+   //    sizeof      stackalloc   static     string     struck      switch      this
+   //    throw       true         try        typeof     uint        ulong       unchecked 
+   //    unsafe      ushort       using      virtual    void        volatile    while
+
+   // ----------------------------------------------------------------------------------------------------
+   /*
+   //string string = "abc"; //very bad 
+   string sõne = "abc"; //good
 
 
-    int mingiarv = 4;
+   int mingiarv = 4;
 
-    mingiarv = mingiarv + 15;   //
+   mingiarv = mingiarv + 15;   //
 
-    mingiarv = mingiarv - 15;   //
+   mingiarv = mingiarv - 15;   //
 
-    mingiarv = mingiarv * 15;   //
+   mingiarv = mingiarv * 15;   //
 
-    mingiarv = mingiarv / 15;   //
-
-
-    mingiarv += 15;   //
-
-    mingiarv -= 15;   //
-
-    mingiarv *= 15;   //
-
-    mingiarv /= 15;   //
-
-      O M I S T U S    O P E R A A T O R I D 
+   mingiarv = mingiarv / 15;   //
 
 
-    // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
-    int muutuuja = 1;
-    // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
-    muutuuja += 2;
-    // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
-    muutuuja -= 1;
-    // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
-    muutuuja *= 4;
-    // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
-    muutuuja /= 4;
-    // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
-    muutuuja %= 2;
-    // ++ e. kiirtehe mis liidab ainult 1 juurde
-    muutuuja++;
-    // -- e kiirtehe mis lahutab ainult 1 maha
-    muutuuja--;
+   mingiarv += 15;   //
+
+   mingiarv -= 15;   //
+
+   mingiarv *= 15;   //
+
+   mingiarv /= 15;   //
+
+     O M I S T U S    O P E R A A T O R I D 
 
 
-     V Õ R D L U S    O P E R A A T O R I D 
+   // =  e. üksik võrdus märk omistab muutuja sisse väärtuse, mida adreseeritakse muutuja oma nimega
+   int muutuuja = 1;
+   // +=  e. võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teselpool oleva väärtuse.
+   muutuuja += 2;
+   // -=  e. võrdusmärk mille ees on miinus, automaatselt lahutab muutujast võrdusmärgi teselpool oleva väärtuse.
+   muutuuja -= 1;
+   // *=  e. võrdusmärk mille ees on kordus märk, automaatselt korrutab muutujast võrdusmärgi teselpool oleva väärtuse.
+   muutuuja *= 4;
+   // /=  e. võrdusmärk mille ees on jamismärk, automaatselt jagab muutujast võrdusmärgi teselpool oleva väärtuse.
+   muutuuja /= 4;
+   // %= e. võrdusmärk mille ees on modulus, automaatselt jätab muutujasse jäägi
+   muutuuja %= 2;
+   // ++ e. kiirtehe mis liidab ainult 1 juurde
+   muutuuja++;
+   // -- e kiirtehe mis lahutab ainult 1 maha
+   muutuuja--;
 
-    // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
 
-    // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
+    V Õ R D L U S    O P E R A A T O R I D 
 
-    // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
+   // == e. on võrdne on täpselt sama , ühel pool võrdusmärki olev objekt peab olema täpselt sama mis teisel pool võrdusmärki.
 
-    // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
+   // > e. "on suure kui" märgist vasakul pool olev objekt peab olema suurem kui paremalpool olev väärtus
 
-    // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
+   // < "on väiksem kui" märgist vasakul pool olev väärtus peab olema väiksem kui paremal pool olev väärtus
 
-    // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
+   // >= "on suurem, või võrdne" vasakul olev väärtus peab olema suure või võrdne paremal oleva väärtusega
+
+   // <= "Väiksem kui, või võrdne"märgist vasakul pool olev objekt peab olema väiksem kui või sama suur kui paremal pool olev väärtus
+
+   // != "ei tohi olla" võrdusmärgi vasakul pool ei tohi olla samasugust väärtust mis paremal pool ülejäänud väärtused on lubatud
 
 
-    L O O G I L I S E D      O P E R A A T O R I D
+   L O O G I L I S E D      O P E R A A T O R I D
 
-    // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
-    (true + true = true)
-    // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
+   // && e. "AND" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse "true" juhul kui mõlemal pool märki "&&" olevad tingimused on tõesed
+   (true + true = true)
+   // || e. "OR" on loogiline tehe mis annab vastuse "true" kui ühel pool märki "||" on tehte tulemus true (True = True)
 
-    // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
+   // ! e. "NOT" on loogiline tehe, mida kasutatakse tingimuse , avaldise või tulemuse inventeerimiseks. (False = True || True = Falsse)
 
-                     --      T I N G I M U S L A U S E      --
+                    --      T I N G I M U S L A U S E      --
 
-     //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
+    //         ----- T I N G I M U S L A U S E    -IF/ELSE -    ------
 
-    if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
+   if (true) { } //kaitstud sõna if kutsub esile tingimus lause mille tingimusavaldis on sellele järgnevatele sulgude vahel.järgneb loogeliste sulgude vahel koodi plokk mis teostatakse siis kui tingimuse avaldis annab tingimuse "true" . "False" tulemuse puhul jäetakse kood vahele
 
-    else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
+   else if (true) { } //kaitstud sõnad else ja if (koos else if) kutsuvad esile sekundaarse tingimuslause mille tingimus on samamoodi sellele  järgnevate sulgude vahel, ning millele peab alati eelnema kas if või teine else if.else if tingimust kontrollitakse ainult siis kui sellele eelnev tingimus tagastab avaldis tulemusena "false" minnakse edasi järgmise tingimuse juurde.
 
-    else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
+   else   // kaitstud sõna else kutsub esile järeltingimus lause, Millele peab eelnema alati kas if või else if tingimuslause. Ning mille koodiploki sisu täidetakse ila oma tingimuse avaldise kontrollita kuna else kasutatakse kõigi teiste tingimuste läbikukkumisel(kõik eelnevad tagastavad tulemuse false).
 
-    //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
-    */
+   //         ----- T I N G I M U S L A U S E    -SWITCH/CASE -    ------
+   */
 
     /*
     int option = 3;
@@ -439,7 +509,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
     //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
     */
 
-    
+
 
 
     //-------------------  T E O O R I A   L Õ P P  ------------------
