@@ -126,7 +126,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
                                                 //     ülesseehitada ennast teiste andmetüüpide põhjal
 
         */
-        // ----------  S Õ N A S T I K  --------
+        // 3. ----------  S Õ N A S T I K  --------
         /*
 
         //Dictionary <T, T>     ---> Disctionary on komposiit andmetüüp mis omab võti väärtus paare erinevalt teistest
@@ -180,16 +180,31 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
 
         */
-    // --------------------------------------
-
-    // ----------  T U P L E  -----------
+        // --------------------------------------
 
 
+        // 4. ----------  T U P L E / HULK -----------
 
+        Tuple<string, string> Tupla = new Tuple<string, string>("Vasakpool" , "Parempool");
+        // andmetüübi kirjeldus TUPLE näitab et siin on tegu erinevate andmete hulgaga ehk hulgaga . TUPLE noolsulgude vahele asetatakse kõik soovitud vajadusel erineevad andmetüübid mis väljendavad TUPLE i sees väljendatava asukohtades sees asuvaid andmetüüpe . kui esimene andetüübi objekt on string siis on esimene väärtus string andmetüüpi andmed , kui teises kohas on list siis on teine väärtus TUPLE i sees List . ja ka nagu kõik teised komposiitandmetüübid saab kasutada TUPLE tema enda sees. 
+        // erinevalt teistest komposiit andmetüüpidest ei saa ühte TUPLE elementi koha peal muuta vaid kogu TUPLE tuleb protsessi käigus muudetud andmetest ja olemas olevatest andmetest uuesti.
 
+        //esimene tekitus viis
 
+       // Tuple<bool, int, string> someTople = new Tuple<bool, int, string>() { true, 1, "help" };
+        // andmetüübi kirjeldus tuple ütleb et selles muutujas on mitmik selles mitmikus on esimeseks bool , teiseks int , ja kolmandaks string tüüpi elemendid , tuple vaj ka kohe esmast omistus seega kaitstud sõna new ja andmetüübi täiskirjeldus  Tuple<bool, int, string>  vajab peale seda sulgude vahel esmaseid andmeid. antud juhul on siin { true, 1, "help" };
 
+        // ---- TUPLE töötlemine ------
 
+        // ütleme et on olemas ülaltoodud Tupla see on tuple soovime sealt ühe ära süüa ehk asendad ühe kahest objekstis uue sõnaga mis loeks "mmmmm" tuple ei saa muta aga saab rekombineerida, seega saame teha nii :
+        string uuspool = "mmmm";
+        Tupla = new Tuple<string, string>(Tupla.Item1, uuspool);
+
+        //Tuple adreseerimine
+        // just nagu eelnevalt näidatud saame adreseerida tuple erinevaid objekte eraldi selle jaoks on iga genereeritud tuple sees genereeritud muutujad .Item"number" millega me saame adreseerida soovitud objekti NB! erinevalt loendis , massiivist , järjedist . algab lugemine arvust 1 ehk esimene item ei ole item0 vaid item1 
+
+        string pool1 = Tupla.Item1;  // loeme Tuple seest esimese itemi mille omistale muutujasse "itme1"
+        string pool2 = Tupla.Item2;  // loeme Tuple seest teise itemi mille omistale muutujasse "itme2"
 
 
     // ----------------------------------
