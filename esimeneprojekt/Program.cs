@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.Design;
 using System;
 using System.Net.Http.Headers;
-using System.Threading.Channels; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
-                                 //teised projektid viidatakse tavaliselt solution failist
+using System.Threading.Channels;
+using System.Security.Cryptography.X509Certificates; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
+                                                     //teised projektid viidatakse tavaliselt solution failist
 
 namespace esimeneprojekt;  // nimeruum, sissaldab loogeliste sulgude vahel konteinerit kus asub kogu programmi kood nimw all "esimeneprojekst".
 
@@ -46,12 +47,21 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         var X = 123; //umbmäärane andmetüübiga ajutine muutuja
         var Y = "ABC";
         bool jahvõiei = false; //kas true või false.
+        void  - on anmdmetüüp mida muutuja tekitamisel kasutada ei saa.
+        kasutatakse ainult meetodite signatuurides välendamiseks et meetod ei tagasta midagi.
         -----------------------------------------------------------
+
+
+
+
+
+
+        -----------------------------------------------------
                   ---- S Õ N E   T Ö Ö R I I S T A D ----
         */
         // Sõne tööriistad on tekstilise andme töötlusesks tööriistafd mis teevad kasutajale mingi tegevused ära või tuvastavad midagi.sõne tööriistu on vaja tihtipeale programmi sisendi standardiseerimiseks ning kasutaja sisestus vigade vältimiseks
 
-        /* töötlevad meetodid */
+        /* töötlevad meetodid */ /*
         string minuLause = "Monarch monster on parim, teisel kohal on valge monster :3";
        // Console.WriteLine(minuLause.Length);     // sõne tööriist tagastab selle sõne pikkuse.
        //  Console.WriteLine(minuLause.ToUpper()); // sõne tööriist .ToUpper muuda sõne olevad tähed suurteks tähtedeks
@@ -93,7 +103,7 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         Console.WriteLine(väljundlause);
 
         /*   comcatemineerimis võimalused   */
-
+        /*
         //.concat on meetod millega saab ühendad mitu string tüüpi väärtust ühendad üheks stringiks
         string eesnimi = "Juulius";
         string perekonnanimi = "Aleksei";
@@ -104,8 +114,8 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
         string kuuluskeiser2 = $"{eesnimi} {perekonnanimi} oli kuulsaim {amet}";
         Console.WriteLine(kuuluskeiser2);
         // "$" on viis kuidas keset stringi kasutada muutujate olevaid väärtusi ilma nende tahtliku teisendusetta ek tegu on formateeritud stringiga.
-
-        /*   L A N G J O O N  --- teksti vormindamiseks */ 
+        
+        /*   L A N G J O O N  --- teksti vormindamiseks 
         Console.WriteLine("A   \n   B"); //    "\n"  tekitab sõnes reavahetuse.
 
         Console.WriteLine("  \\  "); //  "\\" kuvab teksti sisse "\"
@@ -127,7 +137,7 @@ vorminduse
 """);
             // kolm jutumärgipaari on sõne eraldi väljendus viis mis hoiab sisend andmete vorminduse ühtse alles.
 
-        /*   stringi adreseerimine   */
+        /*   stringi adreseerimine   
 
         bool tuvastus2 = minuLause.StartsWith("Monarch"); // .StartsWith tagastab true või false , oleneb kas string algab
                                                           // otsitava väärtusega sama asi on .EndsWith aga vastupidiselt
@@ -161,7 +171,7 @@ vorminduse
         //masiivi meetod index of andmetüübist endast võtab sisse kaks parameetrit massiivi enda ja otsitava elemendi ja
         //tagstab meile indexi kus esimene vastav element asub "-1" kui ei leita ja "0" kui on tühi
         // .IndeOf Sarnaselt masiivile saab ka stringil mingi väärtuse järgi indexi järgi
-
+        */
         /*
         -----------------------------------------------------------
         // K O M P O S I I T   A N D M E T Ü Ü B I D
@@ -643,7 +653,7 @@ vorminduse
         //NB! tsükkli töö ei pea olema ültse seotud kollektsiooniga , kollektsiooni
         //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
         */
-
+         
 
 
 
@@ -1245,5 +1255,124 @@ vorminduse
 
         }    
         */
+        /* ---- M E E T O D I D ---- */
+        // meetodi on väljakutsutavad koodi jupid ehk alamprogrammid. meetodid teostavad tavaliselt mingeid spetsiifilisi funktsioone või tegevusi. meetodid lasevad programeerijal taaskasutada oma eelnevalt kirjutatud koodi - write once read many meetodeid on kahte liiki . ühed mis tagastavad minisuguse töö või tegevuse tagajärjel või muu tulemusena saavutamise andmeid ja teised mis ei tagasta midagi kui omavad siisiki mingit tegevust
+        
+        //                    meetodi anatoomia 
+
+        // meetod olemus sisealdab endas kolme vajalikku komponenti meetodi enda omadused ja nimi , parameetrid ja meetodi kood ise meetodi omadused ja parameetrid moodustavad meetodi signatuuri , ning sellele järgnevad loogeliste sulgude vahel meetodi koodiplokk mille ta täidab väljakutsumisel.
+
+        // meetodi signatuur on kõige esimene rida mis meetodi tekitamiseks kirjutatakse ning mis kirjeldab meetodit ennast ja selle omadusi signatuur koosneb ise ka mitmest või kõigist järgnevatest. nendeks on : juurdepääsu modifikaator , tagasts tüüp , meetodi nimi olenevalt liigist ka parameetrid sulgude vahel (), nning peale signatuuri siis koodiplokk.
+
+        // juurdepääsu modifikaator ütleb ära kust ja kuidas seda meetodit saab välja kutsuda või adreseerida tähtsamaid neist on viis tükki 
+
+        //0.               - modifikaatori puudumisel kompilaator annab meetodile sobiva varjaandis automaatselt.
+
+        //1. Public        - meetod on avalik ja kättesaadav ka teistes klassides peale selle klassi/projektis kus meetod ise asub. 
+
+        //2. Private       - Meetod on kättesaadav ainult selles klassis kus meetod ise asub.
+
+        //3. Protected     - Meetod on kättesaadav klassis kus ta asub ja kõikides klassides mis pärivuse kaudu mis omab selle klassi andmeid.
+
+        //4. Internal      - Meetod on juurdepääsetav ainult projektis kus ta asub. samas projektis saavad teised klassid seda kasutada aga mitte projektist väljaspoolsed klassid
+
+        //5. Static        - Meetodit on ainult üks. 
+
+
+
+        //             tagastus tüüp 
+
+        // Tagastus tüüp on meetodi omadus mis ütleb ära millise tüübiga andmeid meetodi väljakutsumis asukohta tagastatakse kui ültse . andmetüüp mida tagastatakse võib olla ükskõik milline liht või kombinatsiooni andmetüüp aga kui meetod ei tagasta ültse andmeid on selle meetodi andmetüüp "void" kui meetodil on midagi muud kui void tagastustüübina on meetodi sees iga toimiva koodi suuna lõpus kaitstud sõna "Return" return ütleb et just see asi on vaja tagastada peale returni on alati tagastatavad andmed või muutuja mis sisaldab tagastatavaid andmeid, olenevalt meetodist saab selleks olla ka tegevus . Need andmed antakse tagasi sinna kust meetod kutsuti ning peale sõna return muud koodi ei täideta, return katkestab meetodi töö.
+
+        //     - Meetodi enda nimi on midagi mille järgi arendaja meetodit kasutab , nimi omab samat funktsiooni nagu näiteks muutuja nimi mille sees on muutuja andmed. meetodi nime kirjutamisel võiks meetodi nime kirjutada tegevuse järgi mida meetod teeb mitte kus ta käib ega muu kõrvaline asi või arusaamatu asi . näide: Kui arendaja kirjutab meetodi A() siis see meetodi nimi ei ütle talle endale tulevikus ega kaastöölistele midagi aga meetodi nimi "ArvutaArvudKokku()" ütleb selgelt ära mille jaoks meetod on ta ei raiska oma aega meetodi sisse vaatamiseks et lugeda koodi ja ise nuputada mida kood teeb .
+
+        // parameetrid on väljad mis ütlevad mida meetodi tööks vaja on ning mis on vaja sulgude vahele lisada meetodi väljakutse asukohas parameetri muutuja nimi võibolla väljendatud teist moodi kui selle meetodiga kasutatavat andmed ise 
+
+        //parameetreid on kahte sorti kohustuslikud ja optional (valikulised) valikulise parameetri väljendusel pannaks andmetüübi taha küsimärk "?", On olemas ka vaikeväärtusega parameetrid kus muutujale väärtuse puudmisel antakse signatuuris mingisugune väärtus ett ära.
+
     }
+    //esimest tüüpi meetod - ei tagasta andmeid:
+
+    public static void UusMeetod() // meetodi signatuur omab juurdepääsumodifikaatorit public asub seles klassis ning
+                                   // tagastus tüüp on void pärast omadusi on meetodi nimi "UusMeetod" peale mida on sulud
+                                   // mille vahel parameetreid pole määratud . Peale signatuuri on koodiplokk kus kuvatakse
+                                   // kasutajale tekst "Tere"
+
+    {
+        Console.WriteLine("Tere");
+    }
+    /*  // teist tüüpi meetod - tagastab mingisuguse väärtuse või mingid andmed
+    int[] arvutatavadarvud = new int[] { 67, 69, 420, 9001 }; // töödeldavad mandmed mis asuvad väljaspool meetodit
+
+    public static int[] ArvutaKokku(int[] arvud) // meetodi signatuur omab juurdepääsumodifikaatorit asub selles klassis,
+                                                 // tagastus tüüp int ütleb et meetod tagastab andmeid üksiku täisarvuna meetodi
+                                                 // nimi on "ArvutaKokku" ning meetodile on antud üks kohustuslik parameeter
+                                                 // arvumasiiv mille muutuja nimi meetodi sees on arvud kui mitte nullitavast muutujast teise panna siis on ka vajalik castimine. Parameetri vaikeväärtus 
+    {
+        int summa = 0;
+        foreach (var arv in arvud)
+        {
+            summa += arv;
+        }
+        return summa;
+    }
+    // meetodis sisu arvutab kokku arvud olevas listsi ning meetodi lõpus kasutades kaitstud sõna return tagastab muutujas summa oleva väärtuse 
+
+
+
+    // meetodi väljakutse:  
+    //HETKELL KÄIVITATUD KOODIS KUTSUTAKSE MEETOD VÄLJA AINULT TEMA NIME PIDI JA NEENDE JAOKS VAJALIKUD PARAMEETRID (kui vaja neid)
+    //   mingi muud kood
+
+    //    ArvutaKokku(arvutatavadArvud)
+    // Valikuline ja kohustuslik parameeter 
+
+    public void MillineTekst(int vanus, int? pikkus = 170) // meetodi signatuuris kus on parameetrid  on asetatud üks kohustuslik  parameeteer vanus ja üks valikuline parameeter pikkus valikulist parameetrit tähistatakse peale andmetüüpi oleva küsimärgiga küsimärk tähistab et onn nullitav ehk meetod otseselt ei vaja seda aga võib olemas olla.
+    {
+    if (vanus < 18)
+
+        {
+            Console.WriteLine("Alakaid ei taha");
+        }
+        else if(vanus >= 18)
+        {
+            if (pikkus != null)
+            {
+                if (pikkus <= 170)
+                {
+                    Console.WriteLine("saad juua ainult 2 liitrit monstrit");
+                }
+                else if (pikkus <= 200)
+                {
+                    Console.WriteLine("saad juua 4 iitrit ");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Saad juua 2 liitrit monstrit");
+            }
+
+        }
+
+
+    }
+
+    //parameetri vaikeväärtus 
+
+    public string KeskmineTase(float veetase = 1.5f) // meetodi signatuuris on asetatud sulgude vahele veetase mille taga on
+                                                     // võrsusmär väärtusega , meetodi signatuuris ütleb võrdusmärk et tegu on
+                                                     // vaikeväärtusega kui meetodile ei anta sisse tulevat väärtus´t siis
+                                                     // eeldatatkse et selleks väärtuseks on see sama vaikeväärtus 
+    {
+        if (veetase > 1.5)
+        {
+            return "liiga kõrge";
+        }
+        else
+        {
+            return "normaalne";
+        }
+    }
+    */
+
 }
