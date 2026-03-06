@@ -2,8 +2,9 @@
 using System;
 using System.Net.Http.Headers;
 using System.Threading.Channels;
-using System.Security.Cryptography.X509Certificates; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
-                                                     //teised projektid viidatakse tavaliselt solution failist
+using System.Security.Cryptography.X509Certificates;
+using System.Text; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
+                   //teised projektid viidatakse tavaliselt solution failist
 
 namespace esimeneprojekt;  // nimeruum, sissaldab loogeliste sulgude vahel konteinerit kus asub kogu programmi kood nimw all "esimeneprojekst".
 
@@ -1300,8 +1301,55 @@ vorminduse
 
         string loetudFailiSisu = File.ReadAllText("failinimi.text");
 
+        //ReadAllText(failinimi."faili laiend")  loeb failis terve sisu tekstina 
+
+        string[] loetudFailisSisu2 = File.ReadAllLines("failinimi.txt");
+
+        // loeb kirjeldatud failist mis asub samas kaustas stringide järjendine kus iga element on üks rida kogu failist
+
+        byte[] LoetudFailiBaidid = File.ReadAllBytes("failinimi.txt");
+
+        // ---- K I R J U T A M I N E ----
+
+        File.WriteAllText("/väljund.txt", loetudFailiSisu);
+        // WriteAllText("väjunfail.laien","sisu ") kirjutab kindalsse asukohta mis asub esimese parameetri sees , ja kindla teksti mis
+        // on teise parameetri sees
+
+        File.WriteAllLines("/väljund.txt", loetudFailisSisu2);
+        // WriteAllLines("väjunfail.laien","sisu järjendis mida kasutatakse ") kirjutab kindalsse asukohta mis asub esimese parameetri
+        // sees , ja kindla teksti mis on teise parameetri sees
+        File.WriteAllBytes("/väljundbaidid.txt", LoetudFailiBaidid);
+        // WriteAllbyte("väjunfail.laien","sisu baidi järjendis mida kasutatakse ") kirjutab kindalsse asukohta mis asub esimese parameetri
+        // sees , ja kindla teksti mis on teise parameetri sees, koosneb baiditest
 
 
+        // kõik kirjutus meetodid kirjutavad juba samanimelise faili üle kui fail eksisteerib
+        // kui fail ei eksisteer siis fail tekitatakse 
+
+
+        // --- M U U D ----
+
+        File.Exists("/väljund.txt");
+        //File.Exists kontrollib kas selles asukohas on olemas sellise nimega ja sellise laindiga fail kui on siis tagastab true kui
+        //mitte siis false
+
+        File.Delete("/väjundfile.laiend");
+        //kustutab faili kui see on olemas kirjeldatud asukohas.
+
+        File.Create("/väljund.txt");
+        //create tekitab uue tühja faili valitud asukohta valitud laiendiga , kui see fail on juba olemas siis olemasolev fail tühjendatakse
+
+        File.Copy("/väljundfail.txt", "väljundCOPY.txt",false);
+        //.Copy teeb failist koopia , esimene parameeter on see millest koopia tehakse ja teine parameeter on  mis failinime
+        //või/ja laiendiga sa soovid teist faili. kolmas parameter "false" . kui fail juba olemas siis false puhul on
+        //ülekirjutamine keelatud ja true puhul ülekirjutamine lubatud
+
+        File.Replace("/väljundfail.txt","/sihtfail.txt","/sihtfailBACKUP.txt");
+        // .replace asendab esimeses parameetris oleva faili sisu , kirjutab uue faili teise parameetri asukohta , kustutades originaalse faili ja asetades backupifaili
+
+        File.AppendText("/väljundfail.txt");
+        //apend text lisab olemasolevale failile juurde sisu parameetri spetsifitseeritud faile, kui fail ei eksisteeri enam
+        //tekitatakse see uuesti.
     }
     //esimest tüüpi meetod - ei tagasta andmeid:
 
