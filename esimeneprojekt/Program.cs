@@ -653,7 +653,7 @@ vorminduse
         //NB! tsükkli töö ei pea olema ültse seotud kollektsiooniga , kollektsiooni
         //ise võib olla ainult tsükkli muutuja eesmärgil sätestatud
         */
-         
+
 
 
 
@@ -1257,7 +1257,7 @@ vorminduse
         */
         /* ---- M E E T O D I D ---- */
         // meetodi on väljakutsutavad koodi jupid ehk alamprogrammid. meetodid teostavad tavaliselt mingeid spetsiifilisi funktsioone või tegevusi. meetodid lasevad programeerijal taaskasutada oma eelnevalt kirjutatud koodi - write once read many meetodeid on kahte liiki . ühed mis tagastavad minisuguse töö või tegevuse tagajärjel või muu tulemusena saavutamise andmeid ja teised mis ei tagasta midagi kui omavad siisiki mingit tegevust
-        
+
         //                    meetodi anatoomia 
 
         // meetod olemus sisealdab endas kolme vajalikku komponenti meetodi enda omadused ja nimi , parameetrid ja meetodi kood ise meetodi omadused ja parameetrid moodustavad meetodi signatuuri , ning sellele järgnevad loogeliste sulgude vahel meetodi koodiplokk mille ta täidab väljakutsumisel.
@@ -1289,6 +1289,18 @@ vorminduse
         // parameetrid on väljad mis ütlevad mida meetodi tööks vaja on ning mis on vaja sulgude vahele lisada meetodi väljakutse asukohas parameetri muutuja nimi võibolla väljendatud teist moodi kui selle meetodiga kasutatavat andmed ise 
 
         //parameetreid on kahte sorti kohustuslikud ja optional (valikulised) valikulise parameetri väljendusel pannaks andmetüübi taha küsimärk "?", On olemas ka vaikeväärtusega parameetrid kus muutujale väärtuse puudmisel antakse signatuuris mingisugune väärtus ett ära.
+
+        //------------  F A I L I   O P E R A T S I O O N I D  -------------
+
+        //Kui programmil on vaja oma tööd salvestada või lugeda mingeid andmedid sisse mis ei pärine kasutajalt ega programmilt endalt
+        //on võimalus neid andmeid sisse lugeda failist või siis talletada failis.
+        //failioperatsioonide tegemiseks on vaja kasutada usinguga süsteemi in out süsteeme, see tuleb moodulist "system.io"
+
+        // ---- L U G E M I N E ----
+
+        string loetudFailiSisu = File.ReadAllText("failinimi.text");
+
+
 
     }
     //esimest tüüpi meetod - ei tagasta andmeid:
