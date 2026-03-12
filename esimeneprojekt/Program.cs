@@ -56,6 +56,17 @@ internal class Program  //programmi klass, mis on ka omakorda konteineri tüüp 
 
 
 
+    //6. --- E N U M --- 
+
+    //ENUM on spetsiaalset tüüpi klass mis koosneb ainult read only väärtustest sarnaselt muude objektide adreseerimisega saab Enumi seest tema muutujaid lugeda punkti abil, Enum kujutab endas täisarvude loendit millelee on antud inimloetavad nimed,
+    
+    //enum sätestakse kaitstud sõnada "enum" , seejärel enumi enda nimi "Häiretase" ning sellele järgnevas koodiplokis enumi enda väärtusi eraldatud komaga.
+    enum häitetase
+    {
+        Madal ,Keskmine ,Kõrge ,Kriitiline
+    }
+
+
 
     static void Main(string[] args) // "Main" on programmi ees olev meetod mis vaikimis käivitatakse kui ei ole teist meetodit määratud.
     {
@@ -1420,6 +1431,12 @@ if (TehteTüüp != "")
         //tekitatakse see uuesti.
 
         */
+        // teeme autod
+
+        Car minuParse = new Car("Civic",CarMark.Honda,"103 MJJ", "Galaxy Gray", (decimal)1.21,new List<String> { "uksed", "aknad"});
+        Console.WriteLine(minuParse.ToString());
+
+
 
     }
     //esimest tüüpi meetod - ei tagasta andmeid:
