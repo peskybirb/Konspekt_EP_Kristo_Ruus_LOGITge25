@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using esimeneprojekt.Vehicles;
 
-namespace esimeneprojekt
+namespace esimeneprojekt.Vehicles
 {
     public enum CarMark
     {
         Toyota,BMW,Ford,Subaru,Honda,Volvo,Škoda,Trashla,Mini,Subuwu,
     }
-    public class Car
+    public class Vehicle
     {
-        public Car(string model,CarMark mark, string plate, string colour,decimal unloadedWeight,List<string> equipment)
+        public Vehicle(string model,CarMark mark, string plate, string colour,decimal unloadedWeight,List<string> equipment)
         {
             Model = model;
             Mark = mark;
@@ -32,7 +33,7 @@ namespace esimeneprojekt
         /// Returns info about this car
         /// </summary>
         /// <returns>Human readable sentence as a string</returns>
-        public string GetInfo()
+        public virtual string GetInfo()
         {
             return $"This is a {Mark} {Model} it is {Colour} color and weighs {EmptyWeight} tons\n License plate is {Plate}";
         }

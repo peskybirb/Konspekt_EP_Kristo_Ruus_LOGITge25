@@ -3,8 +3,9 @@ using System;
 using System.Net.Http.Headers;
 using System.Threading.Channels;
 using System.Security.Cryptography.X509Certificates;
-using System.Text; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
-                   //teised projektid viidatakse tavaliselt solution failist
+using System.Text;
+using esimeneprojekt.Vehicles; //enne nimeruumi viidatakse selles failis / klassis kasutatud pakettidele moodulitele ja süsteemi muudele osadele, süsteemi muuks osaks võib olla kas OS võimalused või  ka teised projektid
+                               //teised projektid viidatakse tavaliselt solution failist
 
 namespace esimeneprojekt;  // nimeruum, sissaldab loogeliste sulgude vahel konteinerit kus asub kogu programmi kood nimw all "esimeneprojekst".
 
@@ -1433,10 +1434,10 @@ if (TehteTüüp != "")
         */
         // teeme autod
 
-        Car minuParse = new Car("Civic",CarMark.Honda,"103 MJJ", "Galaxy Gray", (decimal)1.21,new List<String> { "uksed", "aknad"});
+        Vehicle minuParse = new Vehicle("Civic",CarMark.Honda,"103 MJJ", "Galaxy Gray", (decimal)1.21,new List<String> { "uksed", "aknad"});
         Console.WriteLine(minuParse.ToString());
 
-
+       //minu rong midagi
 
     }
     //esimest tüüpi meetod - ei tagasta andmeid:
